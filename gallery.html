@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Gallery</title>
+    <title>Product Gallery | RG Machinery</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       :root {
         --primary-color: #c14db0;
@@ -12,23 +16,48 @@
         --white: #ffffff;
         --light-gray: #f8f8f8;
         --dark-gray: #333333;
+        --gradient: linear-gradient(135deg, #c14db0 0%, #6e3dc8 100%);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
 
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.ttf)
+          format("truetype");
+      }
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlEA.ttf)
+          format("truetype");
+      }
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlEA.ttf)
+          format("truetype");
       }
 
       body {
         background-color: var(--light-gray);
         color: var(--dark-gray);
-        padding-top: 80px; /* Accommodates fixed navbar */
-        margin-right: auto;
-        margin-left: auto;
+        padding-top: 80px;
+        margin: 0 auto;
         width: 100%;
         overflow-x: hidden;
+        line-height: 1.6;
       }
 
       /* Navbar Styles */
@@ -38,9 +67,11 @@
         left: 0;
         width: 100%;
         background-color: var(--white);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
         z-index: 1000;
-        transition: all 0.3s ease;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
       }
 
       .navbar-container {
@@ -50,7 +81,8 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
-        height: 70px;
+        height: 80px;
+        transition: var(--transition);
       }
 
       .navbar-logo {
@@ -60,20 +92,26 @@
       }
 
       .navbar-logo img {
-        height: 40px;
+        height: 50px;
         width: auto;
-        margin-right: 10px;
+        margin-right: 15px;
+        transition: var(--transition);
       }
 
       .navbar-logo h2 {
         color: var(--primary-color);
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         font-weight: 700;
+        letter-spacing: -0.5px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       .navbar-links {
         display: flex;
-        gap: 20px;
+        gap: 25px;
       }
 
       .navbar-link {
@@ -82,29 +120,19 @@
         font-weight: 600;
         font-size: 1rem;
         padding: 10px 15px;
-        border-radius: 4px;
-        transition: all 0.3s ease;
+        border-radius: 30px;
+        transition: var(--transition);
         position: relative;
       }
 
       .navbar-link:hover {
         color: var(--primary-color);
+        transform: translateY(-2px);
       }
 
       .navbar-link.active {
         color: var(--primary-color);
-      }
-
-      .navbar-link.active::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 3px;
-        background-color: var(--primary-color);
-        border-radius: 10px;
+        background: rgba(193, 77, 176, 0.1);
       }
 
       .navbar-toggle {
@@ -114,6 +142,7 @@
         width: 30px;
         height: 21px;
         cursor: pointer;
+        z-index: 1001;
       }
 
       .navbar-toggle span {
@@ -122,7 +151,7 @@
         height: 3px;
         background-color: var(--primary-color);
         border-radius: 3px;
-        transition: all 0.3s ease;
+        transition: var(--transition);
       }
 
       .container {
@@ -134,71 +163,141 @@
 
       header {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 60px;
+        padding-top: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          var(--primary-light) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        opacity: 0.3;
+        z-index: -1;
+        animation: pulse 8s infinite alternate;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translateX(-50%) scale(1);
+        }
+        100% {
+          transform: translateX(-50%) scale(1.2);
+        }
       }
 
       header h1 {
         color: var(--primary-color);
-        font-size: 2.5rem;
-        margin-bottom: 10px;
+        font-size: 3rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+      }
+
+      header h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient);
+        border-radius: 2px;
       }
 
       header p {
         color: var(--dark-gray);
-        font-size: 1.1rem;
-        max-width: 600px;
+        font-size: 1.2rem;
+        max-width: 700px;
         margin: 0 auto;
+        opacity: 0.8;
       }
 
       .filter-bar {
         display: flex;
         justify-content: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 15px;
       }
 
       .filter-btn {
         background-color: var(--white);
         color: var(--primary-color);
         border: 2px solid var(--primary-color);
-        padding: 8px 20px;
+        padding: 10px 25px;
         border-radius: 30px;
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 600;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .filter-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--gradient);
+        z-index: -1;
+        transition: var(--transition);
       }
 
       .filter-btn:hover {
-        background-color: var(--primary-light);
         color: var(--white);
+        border-color: transparent;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.2);
+      }
+
+      .filter-btn:hover::before {
+        width: 100%;
       }
 
       .filter-btn.active {
-        background-color: var(--primary-color);
+        background: var(--gradient);
         color: var(--white);
+        border-color: transparent;
+        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.3);
       }
 
       .gallery-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
         justify-content: center;
       }
 
       .gallery-item {
         background-color: var(--white);
-        border-radius: 8px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
         height: 100%;
         display: flex;
         flex-direction: column;
         opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 0.5s forwards;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s forwards;
+        position: relative;
       }
 
       @keyframes fadeInUp {
@@ -209,38 +308,64 @@
       }
 
       .gallery-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient);
+        opacity: 0;
+        transition: var(--transition);
+        z-index: 1;
+      }
+
+      .gallery-item:hover::before {
+        opacity: 0.1;
       }
 
       .gallery-item img {
         width: 100%;
-        height: 200px;
+        height: 220px;
         object-fit: cover;
         display: block;
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
       }
 
       .gallery-item video {
         width: 100%;
-        height: 200px;
+        height: 220px;
         object-fit: cover;
         display: block;
         background-color: #000;
       }
 
       .gallery-item-content {
-        padding: 15px;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex-grow: 1;
+        position: relative;
+        z-index: 2;
+        background: var(--white);
       }
 
       .gallery-item-content h3 {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         color: var(--dark-gray);
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         text-align: center;
+        font-weight: 600;
       }
 
       .item-actions {
@@ -251,36 +376,69 @@
       }
 
       .view-btn {
-        background-color: var(--primary-color);
+        background: var(--gradient);
         color: var(--white);
         border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        font-size: 0.85rem;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 0.9rem;
         font-weight: 600;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: var(--transition);
         flex-grow: 1;
-        margin-right: 8px;
+        margin-right: 10px;
+        box-shadow: 0 5px 15px rgba(193, 77, 176, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .view-btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(-100%) skewX(-15deg);
+        transition: var(--transition);
       }
 
       .view-btn:hover {
-        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(193, 77, 176, 0.4);
+      }
+
+      .view-btn:hover::after {
+        transform: translateX(100%) skewX(-15deg);
       }
 
       .favorite-btn {
-        background: none;
-        border: none;
+        background: var(--white);
+        border: 2px solid #eee;
         color: #999;
         font-size: 1.2rem;
         cursor: pointer;
-        transition: color 0.3s ease;
+        transition: var(--transition);
         padding: 8px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .favorite-btn:hover,
+      .favorite-btn:hover {
+        color: var(--primary-color);
+        border-color: var(--primary-light);
+        transform: scale(1.1);
+      }
+
       .favorite-btn.active {
         color: var(--primary-color);
+        border-color: var(--primary-light);
+        background: rgba(193, 77, 176, 0.1);
       }
 
       .lightbox {
@@ -289,7 +447,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 0.95);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -297,7 +455,7 @@
         z-index: 1010;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
       }
 
       .lightbox.active {
@@ -308,44 +466,67 @@
       .lightbox-content {
         max-width: 90%;
         max-height: 80%;
+        transform: scale(0.9);
+        transition: transform 0.4s ease;
+      }
+
+      .lightbox.active .lightbox-content {
+        transform: scale(1);
       }
 
       .lightbox-content img,
       .lightbox-content video {
         max-width: 100%;
-        max-height: 70vh;
+        max-height: 75vh;
         display: block;
         margin: 0 auto;
-        border-radius: 4px;
+        border-radius: 8px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       }
 
       .lightbox-close {
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 30px;
+        right: 30px;
         font-size: 30px;
         color: var(--white);
         background: none;
         border: none;
         cursor: pointer;
         z-index: 1020;
+        opacity: 0.7;
+        transition: var(--transition);
+      }
+
+      .lightbox-close:hover {
+        opacity: 1;
+        transform: rotate(90deg);
       }
 
       .lightbox-caption {
         color: var(--white);
         text-align: center;
-        margin-top: 15px;
+        margin-top: 25px;
         padding: 0 20px;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        max-width: 800px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease 0.2s;
+      }
+
+      .lightbox.active .lightbox-caption {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .pagination {
         display: flex;
         justify-content: center;
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 8px;
       }
 
       .page-btn {
@@ -353,85 +534,114 @@
         border: 1px solid #ddd;
         color: var(--dark-gray);
         margin: 0 5px;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 4px;
+        border-radius: 50%;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: var(--transition);
+        font-weight: 600;
       }
 
       .page-btn:hover {
-        background-color: var(--primary-light);
+        background: var(--gradient);
         color: var(--white);
-        border-color: var(--primary-light);
+        border-color: transparent;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.2);
       }
 
       .page-btn.active {
-        background-color: var(--primary-color);
+        background: var(--gradient);
         color: var(--white);
-        border-color: var(--primary-color);
+        border-color: transparent;
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.3);
+      }
+
+      /* Floating animation for featured item */
+      .featured-item {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
       }
 
       /* Mobile menu styles */
       @media (max-width: 768px) {
         body {
           padding-top: 70px;
-          margin-right: 0;
-          margin-left: 0;
         }
 
         .navbar-links {
           position: fixed;
-          top: 70px;
+          top: 0;
           left: 0;
           width: 100%;
+          height: 100vh;
           flex-direction: column;
           background-color: var(--white);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-          padding: 20px;
-          gap: 15px;
-          transform: translateY(-150%);
-          transition: transform 0.3s ease;
+          padding: 100px 30px 30px;
+          gap: 25px;
+          transform: translateX(-100%);
+          transition: transform 0.5s ease;
           z-index: 999;
         }
 
         .navbar-links.active {
-          transform: translateY(0);
+          transform: translateX(0);
         }
 
         .navbar-toggle {
           display: flex;
         }
 
-        .navbar-link.active::after {
-          bottom: -5px;
+        .navbar-link {
+          font-size: 1.2rem;
+          padding: 12px 20px;
+          text-align: center;
+        }
+
+        .navbar-link.active {
+          background: rgba(193, 77, 176, 0.1);
         }
 
         .gallery-grid {
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: 15px;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
         }
 
         header h1 {
-          font-size: 2rem;
+          font-size: 2.2rem;
+        }
+
+        header p {
+          font-size: 1rem;
         }
 
         .filter-bar {
-          flex-wrap: wrap;
-          justify-content: center;
+          gap: 10px;
         }
 
         .filter-btn {
-          padding: 6px 15px;
-          font-size: 0.8rem;
+          padding: 8px 18px;
+          font-size: 0.9rem;
         }
 
         .gallery-item img,
         .gallery-item video {
-          height: 180px;
+          height: 200px;
         }
 
         .lightbox-content img,
@@ -441,53 +651,45 @@
       }
 
       @media (max-width: 480px) {
+        .navbar-logo img {
+          height: 40px;
+        }
+
+        .navbar-logo h2 {
+          font-size: 1.3rem;
+        }
+
         .gallery-grid {
-          grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-          gap: 10px;
+          grid-template-columns: 1fr;
+          gap: 15px;
         }
 
         .gallery-item-content h3 {
-          font-size: 0.9rem;
+          font-size: 1.1rem;
         }
 
         .view-btn {
-          padding: 6px 12px;
-          font-size: 0.75rem;
-        }
-
-        .favorite-btn {
-          font-size: 1rem;
-          padding: 6px;
+          padding: 8px 15px;
+          font-size: 0.85rem;
         }
 
         header h1 {
-          font-size: 1.7rem;
+          font-size: 1.8rem;
         }
 
         header p {
-          font-size: 0.9rem;
+          font-size: 0.95rem;
         }
 
         .gallery-item img,
         .gallery-item video {
-          height: 150px;
+          height: 180px;
         }
 
         .page-btn {
-          width: 35px;
-          height: 35px;
-          margin: 0 2px;
-        }
-      }
-
-      @media (max-width: 380px) {
-        .gallery-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .filter-btn {
-          padding: 5px 12px;
-          font-size: 0.75rem;
+          width: 40px;
+          height: 40px;
+          margin: 0 3px;
         }
       }
     </style>
@@ -496,16 +698,16 @@
     <nav class="navbar">
       <div class="navbar-container">
         <div class="navbar-logo">
-          <!-- Logo image with responsive sizing -->
           <img
             src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png"
-            alt="Logo"
+            alt="RG Machinery Logo"
           />
+          <h2>RG PACKAGING</h2>
         </div>
         <div class="navbar-links">
           <a href="index.html" class="navbar-link">Home</a>
           <a href="gallery.html" class="navbar-link active">Gallery</a>
-          <a href="about.html" class="navbar-link">About</a>
+
           <a href="contact.html" class="navbar-link">Contact</a>
         </div>
         <div class="navbar-toggle">
@@ -518,24 +720,33 @@
 
     <div class="container">
       <header>
-        <h1>Product Gallery</h1>
-        <p>Explore our collection of high-quality products</p>
+        <h1>Our Machinery Gallery</h1>
+        <p>
+          Discover our premium collection of industrial packaging solutions
+          designed for efficiency and reliability
+        </p>
       </header>
 
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">All Items</button>
-        <button class="filter-btn" data-filter="product">Products</button>
+        <button class="filter-btn" data-filter="product">Machinery</button>
         <button class="filter-btn" data-filter="video">Videos</button>
       </div>
 
       <div class="gallery-grid">
         <!-- Products -->
-        <div class="gallery-item" data-category="product">
-          <img src="assets/images/about/Auger.jpeg" alt="Industrial Auger" />
+        <div class="gallery-item featured-item" data-category="product">
+          <img
+            src="assets/images/about/Auger.jpeg"
+            alt="Industrial Auger"
+            loading="lazy"
+          />
           <div class="gallery-item-content">
             <h3>Industrial Auger</h3>
             <div class="item-actions">
-              <button class="view-btn">View Details</button>
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
@@ -545,24 +756,31 @@
           <img
             src="assets/images/about/multiheadvffs.jpeg"
             alt="Multihead Machine"
+            loading="lazy"
           />
           <div class="gallery-item-content">
             <h3>Multihead Machine</h3>
             <div class="item-actions">
-              <button class="view-btn">View Details</button>
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
         </div>
+
         <div class="gallery-item" data-category="product">
           <img
             src="assets/images/about/Shrink.jpeg"
             alt="Shrink Wrap Machine"
+            loading="lazy"
           />
           <div class="gallery-item-content">
             <h3>Shrink Wrap Machine</h3>
             <div class="item-actions">
-              <button class="view-btn">View Details</button>
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
@@ -572,66 +790,89 @@
           <img
             src="assets/images/about/Vacuum.jpeg"
             alt="Vacuum Packaging Machine"
+            loading="lazy"
           />
           <div class="gallery-item-content">
             <h3>Vacuum Packaging Machine</h3>
             <div class="item-actions">
-              <button class="view-btn">View Details</button>
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
         </div>
+
         <div class="gallery-item" data-category="product">
           <img
             src="assets/images/about/semiautomatic.jpeg"
             alt="Pouch Filling Machine"
+            loading="lazy"
           />
           <div class="gallery-item-content">
             <h3>Pouch Filling Machine</h3>
             <div class="item-actions">
-              <button class="view-btn">View Details</button>
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
         </div>
 
         <div class="gallery-item" data-category="video">
-          <video controls poster="/api/placeholder/400/300">
-            <source src="#" type="video/mp4" />
+          <video controls poster="assets/images/about/image.png">
+            <source
+              src="assets/images/about/modernpackaging.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="assets/videos/modernpackaging.webm"
+              type="video/webm"
+            />
             Your browser does not support the video tag.
           </video>
           <div class="gallery-item-content">
-            <h3>Product Demo Video</h3>
+            <h3>Modern Packaging</h3>
             <div class="item-actions">
-              <button class="view-btn">Enlarge</button>
+              <button class="view-btn">
+                <i class="fas fa-expand"></i> Enlarge
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
         </div>
 
         <div class="gallery-item" data-category="video">
-          <video controls poster="/api/placeholder/400/300">
-            <source src="#" type="video/mp4" />
+          <video controls poster="assets/images/about/image2.png">
+            <source
+              src="assets/images/about/vacuumpackagin.mp4"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
           <div class="gallery-item-content">
-            <h3>Installation Tutorial</h3>
+            <h3>Vacuum Packaging</h3>
             <div class="item-actions">
-              <button class="view-btn">Enlarge</button>
+              <button class="view-btn">
+                <i class="fas fa-expand"></i> Enlarge
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
         </div>
 
         <div class="gallery-item" data-category="video">
-          <video controls poster="/api/placeholder/400/300">
-            <source src="#" type="video/mp4" />
+          <video controls poster="assets/images/about/image3.png">
+            <source src="assets/images/about/nitrogen.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div class="gallery-item-content">
-            <h3>Customer Testimonial</h3>
+            <h3>Nitrogen Flush Packaging</h3>
             <div class="item-actions">
-              <button class="view-btn">Enlarge</button>
+              <button class="view-btn">
+                <i class="fas fa-expand"></i> Enlarge
+              </button>
               <button class="favorite-btn">♡</button>
             </div>
           </div>
@@ -642,12 +883,12 @@
         <button class="page-btn active">1</button>
         <button class="page-btn">2</button>
         <button class="page-btn">3</button>
-        <button class="page-btn">→</button>
+        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
       </div>
     </div>
 
     <div class="lightbox">
-      <button class="lightbox-close">×</button>
+      <button class="lightbox-close"><i class="fas fa-times"></i></button>
       <div class="lightbox-content"></div>
       <div class="lightbox-caption"></div>
     </div>
@@ -660,13 +901,18 @@
 
         navbarToggle.addEventListener("click", function () {
           navbarLinks.classList.toggle("active");
+          document.body.style.overflow = navbarLinks.classList.contains(
+            "active"
+          )
+            ? "hidden"
+            : "";
 
           // Animate the hamburger icon
           const spans = this.querySelectorAll("span");
           if (navbarLinks.classList.contains("active")) {
-            spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+            spans[0].style.transform = "rotate(45deg) translate(6px, 6px)";
             spans[1].style.opacity = "0";
-            spans[2].style.transform = "rotate(-45deg) translate(7px, -6px)";
+            spans[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
           } else {
             spans[0].style.transform = "none";
             spans[1].style.opacity = "1";
@@ -674,19 +920,18 @@
           }
         });
 
-        // Close mobile menu when clicking outside
-        document.addEventListener("click", function (event) {
-          if (
-            navbarLinks.classList.contains("active") &&
-            !event.target.closest(".navbar-links") &&
-            !event.target.closest(".navbar-toggle")
-          ) {
-            navbarLinks.classList.remove("active");
-            const spans = document.querySelectorAll(".navbar-toggle span");
-            spans[0].style.transform = "none";
-            spans[1].style.opacity = "1";
-            spans[2].style.transform = "none";
-          }
+        // Close mobile menu when clicking a link
+        document.querySelectorAll(".navbar-link").forEach((link) => {
+          link.addEventListener("click", function () {
+            if (window.innerWidth <= 768) {
+              navbarLinks.classList.remove("active");
+              document.body.style.overflow = "";
+              const spans = document.querySelectorAll(".navbar-toggle span");
+              spans[0].style.transform = "none";
+              spans[1].style.opacity = "1";
+              spans[2].style.transform = "none";
+            }
+          });
         });
 
         // Highlight current page in navbar
@@ -705,13 +950,16 @@
         window.addEventListener("scroll", function () {
           const navbar = document.querySelector(".navbar");
           const navbarContainer = document.querySelector(".navbar-container");
+          const logoImg = document.querySelector(".navbar-logo img");
 
           if (window.scrollY > 50) {
-            navbar.style.boxShadow = "0 2px 15px rgba(0, 0, 0, 0.1)";
-            navbarContainer.style.height = "60px";
-          } else {
-            navbar.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+            navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
             navbarContainer.style.height = "70px";
+            logoImg.style.height = "45px";
+          } else {
+            navbar.style.boxShadow = "0 2px 30px rgba(0, 0, 0, 0.1)";
+            navbarContainer.style.height = "80px";
+            logoImg.style.height = "50px";
           }
         });
 
@@ -730,7 +978,7 @@
             const filter = this.getAttribute("data-filter");
 
             // Filter gallery items with animation
-            galleryItems.forEach((item) => {
+            galleryItems.forEach((item, index) => {
               if (
                 filter === "all" ||
                 item.getAttribute("data-category") === filter
@@ -739,7 +987,7 @@
                 setTimeout(() => {
                   item.style.opacity = "1";
                   item.style.transform = "translateY(0)";
-                }, 10);
+                }, index * 50);
               } else {
                 item.style.opacity = "0";
                 item.style.transform = "translateY(20px)";
@@ -772,12 +1020,13 @@
             } else if (category === "video") {
               const video = item.querySelector("video").cloneNode(true);
               video.controls = true;
+              video.autoplay = true;
               lightboxContent.innerHTML = "";
               lightboxContent.appendChild(video);
             }
 
             lightbox.classList.add("active");
-            document.body.style.overflow = "hidden"; // Prevent scrolling when lightbox is open
+            document.body.style.overflow = "hidden";
           });
         });
 
@@ -802,7 +1051,7 @@
 
         function closeLightbox() {
           lightbox.classList.remove("active");
-          document.body.style.overflow = ""; // Restore scrolling
+          document.body.style.overflow = "";
 
           // Pause video if it's playing
           const video = lightboxContent.querySelector("video");
@@ -815,13 +1064,25 @@
         document.querySelectorAll(".favorite-btn").forEach((button) => {
           button.addEventListener("click", function () {
             this.classList.toggle("active");
-            this.textContent = this.classList.contains("active") ? "♥" : "♡";
+            this.innerHTML = this.classList.contains("active")
+              ? '<i class="fas fa-heart"></i>'
+              : "♡";
+
+            // Add animation
+            if (this.classList.contains("active")) {
+              this.style.transform = "scale(1.3)";
+              setTimeout(() => {
+                this.style.transform = "scale(1)";
+              }, 300);
+            }
           });
         });
 
-        // Pagination functionality (just for show)
+        // Pagination functionality
         document.querySelectorAll(".page-btn").forEach((button) => {
           button.addEventListener("click", function () {
+            if (this.classList.contains("active")) return;
+
             document.querySelectorAll(".page-btn").forEach((btn) => {
               btn.classList.remove("active");
             });
@@ -850,6 +1111,7 @@
             navbarLinks.classList.contains("active")
           ) {
             navbarLinks.classList.remove("active");
+            document.body.style.overflow = "";
             const spans = document.querySelectorAll(".navbar-toggle span");
             spans[0].style.transform = "none";
             spans[1].style.opacity = "1";
