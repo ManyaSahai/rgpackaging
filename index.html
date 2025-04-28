@@ -32,6 +32,46 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        .see-more-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #c14db0, #9c27b0);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(156, 39, 176, 0.6);
+            background: linear-gradient(135deg, #9c27b0, #c14db0);
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+   
         .work_flow {
         background-color: #f8f8f8;
         text-align: center;
@@ -589,6 +629,90 @@
             </div>
         </div>
     </section>
+    <section class="gallery-preview">
+        <div class="container">
+            <div class="section-title">
+                <h1>Our Packaging Gallery</h1>
+                <p>A glimpse of our premium packaging solutions and state-of-the-art machinery</p>
+            </div>
+            
+            <div class="row">
+                <!-- Gallery Item 1 -->
+                <div class="col-lg-3">
+                    <div class="gallery-item">
+                        <img src="assets/images/about/Auger.jpeg" alt="Industrial Auger">
+                        <div class="gallery-overlay">
+                            <h4>Industrial Auger</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="col-lg-3">
+                    <div class="gallery-item">
+                        <img src="assets/images/about/multiheadvffs.jpeg" alt="assets/images/about/multiheadvffs.jpeg">
+                        <div class="gallery-overlay">
+                            <h4>Multihead Machine</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="col-lg-3">
+                    <div class="gallery-item">
+                        <img src="assets/images/about/Shrink.jpeg" alt="Packaging Line">
+                        <div class="gallery-overlay">
+                            <h4>Shrink Wrap Machine</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="col-lg-3">
+                    <div class="gallery-item">
+                        <img src="assets/images/about/Vacuum.jpeg" alt="Quality Control">
+                        <div class="gallery-overlay">
+                            <h4>Vacuum Packaging Machine</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="see-more-btn">
+                <a href="gallery.html" class="btn pulse">
+                    See Full Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            // Add hover effect manually for better control
+            galleryItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.querySelector('img').style.transform = 'scale(1.1)';
+                    this.querySelector('.gallery-overlay').style.height = '80px';
+                    this.querySelector('.gallery-overlay h4').style.transform = 'translateY(-5px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.querySelector('img').style.transform = 'scale(1)';
+                    this.querySelector('.gallery-overlay').style.height = '60px';
+                    this.querySelector('.gallery-overlay h4').style.transform = 'translateY(0)';
+                });
+                
+                // Click event to redirect
+                item.addEventListener('click', function() {
+                    window.location.href = 'gallery.html';
+                });
+            });
+        });
+    </script>
+                
 
     <footer class="main-footer" id="footer" >
         <div class="pattern-layer">
