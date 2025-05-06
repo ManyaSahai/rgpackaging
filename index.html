@@ -32,6 +32,11 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        .social-links svg {
+    margin-top: 8px; /* Adjust value as needed */
+}
+
+    
         :root {
             --primary-brown: #6F4E37;
             --secondary-cream: #FFF8E1;
@@ -704,7 +709,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/services.webp" class="service-image" alt="Customized Packing Services">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/services.webp" class="service-image" alt="Customized Packing Services">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Customized Packing Services</h2>
                             <p class="service-description">Tailored packaging solutions for diverse product lines, ensuring your brand's identity shines through.</p>
@@ -714,7 +721,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/Vacuum.webp" class="service-image" alt="Vacuum Packing">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/Vacuum.webp" class="service-image" alt="Vacuum Packing">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Vacuum Packing</h2>
                             <p class="service-description">Ideal for preserving freshness and extending the shelf life of perishable goods.</p>
@@ -724,7 +733,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/nitrogen.jpg" class="service-image" alt="Nitrogen Packing">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/nitrogen.jpg" class="service-image" alt="Nitrogen Packing">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Nitrogen Packing</h2>
                             <p class="service-description">Ensures product integrity by preventing oxidation, perfect for dry goods like snacks and spices.</p>
@@ -735,7 +746,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/jar.webp" class="service-image" alt="Jar Packing">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/jar.webp" class="service-image" alt="Jar Packing">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Jar Packing</h2>
                             <p class="service-description">High-quality jar packaging solutions for preserves, spreads, and specialty products.</p>
@@ -745,7 +758,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/labeling.jpg" class="service-image" alt="Labelling Services">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/labeling.jpg" class="service-image" alt="Labelling Services">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Labelling Services</h2>
                             <p class="service-description">Professionally designed and precisely applied labeling to enhance brand visibility and product appeal.</p>
@@ -755,7 +770,9 @@
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/clean.webp" class="service-image" alt="Sorting & Cleaning">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/clean.webp" class="service-image" alt="Sorting & Cleaning">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Sorting & Cleaning</h2>
                             <p class="service-description">Ensures only the best products are packed, maintaining consistency and quality.</p>
@@ -766,7 +783,9 @@
                     <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
                         <div class="service-item text-center p-4 h-100">
                             <div class="service-img-container">
-                                <img src="assets/images/service/corporate.webp" class="service-image" alt="Corporate Gifting">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/corporate.webp" class="service-image" alt="Corporate Gifting">
+                                </div>
                             </div>
                             <h2 class="mt-4 mb-3">Corporate Gifting</h2>
                             <p class="service-description">Elegant packaging solutions for corporate gifts that leave a lasting impression.</p>
@@ -775,6 +794,46 @@
                 </div>
             </div>
         </div>
+        
+        <style>
+            /* Circular image styles */
+            .circular-img-wrapper {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f8f9fa;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            .service-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            
+            .circular-img-wrapper:hover .service-image {
+                transform: scale(1.1);
+            }
+            
+            /* Service item styles enhancement */
+            .service-item {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border-radius: 12px;
+                background-color: white;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            }
+            
+            .service-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        </style>
     </section>
     
     <!-- service-area end-->

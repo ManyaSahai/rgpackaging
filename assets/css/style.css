@@ -146,7 +146,7 @@ a:focus {
 }
 /*** back to top **/
 .back-to-top {
-  background-color: #720e61;
+  background-color: #3e2723;
   width: 45px;
   height: 45px;
   line-height: 45px;
@@ -177,7 +177,7 @@ a:focus {
 }
 
 .back-to-top:hover {
-  background-color: #c14db0;
+  background-color: #dfd0dd;
 }
 
 .back-to-top i {
@@ -893,7 +893,7 @@ mobile menu
   padding: 100px 0;
 }
 .about-content .about-icon i {
-  color: #c14db0;
+  color: brown;
 }
 .about-content h2 {
   font-size: 30px;
@@ -3496,7 +3496,7 @@ page loader
 
 .loader {
   border: 8px solid #f3f3f3;
-  border-top: 8px solid #c14db0;
+  border-top: 8px solid rgb(172, 57, 57);
   border-radius: 50%;
   width: 160px;
   height: 160px;
