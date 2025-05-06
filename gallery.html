@@ -10,13 +10,15 @@
     />
     <style>
       :root {
-        --primary-color: #c14db0;
-        --primary-light: #e496d9;
-        --primary-dark: #8c3780;
+        --primary-color: #8b6b4a;
+        --primary-light: #c4b6a0;
+        --primary-dark: #5a4a30;
         --white: #ffffff;
-        --light-gray: #f8f8f8;
+        --light-gray: #f5f5f0;
         --dark-gray: #333333;
-        --gradient: linear-gradient(135deg, #c14db0 0%, #6e3dc8 100%);
+        --cream: #f8f4e9;
+        --beige: #e8dcc8;
+        --gradient: linear-gradient(135deg, #8b6b4a 0%, #c4b6a0 100%);
         --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
@@ -51,7 +53,7 @@
       }
 
       body {
-        background-color: var(--light-gray);
+        background-color: var(--cream);
         color: var(--dark-gray);
         padding-top: 80px;
         margin: 0 auto;
@@ -126,13 +128,13 @@
       }
 
       .navbar-link:hover {
-        color: var(--primary-color);
+        color: var(--primary-dark);
         transform: translateY(-2px);
       }
 
       .navbar-link.active {
-        color: var(--primary-color);
-        background: rgba(193, 77, 176, 0.1);
+        color: var(--primary-dark);
+        background: rgba(139, 107, 74, 0.1);
       }
 
       .navbar-toggle {
@@ -197,7 +199,7 @@
       }
 
       header h1 {
-        color: var(--primary-color);
+        color: var(--primary-dark);
         font-size: 3rem;
         margin-bottom: 15px;
         font-weight: 700;
@@ -235,7 +237,7 @@
 
       .filter-btn {
         background-color: var(--white);
-        color: var(--primary-color);
+        color: var(--primary-dark);
         border: 2px solid var(--primary-color);
         padding: 10px 25px;
         border-radius: 30px;
@@ -264,7 +266,7 @@
         color: var(--white);
         border-color: transparent;
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.2);
+        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.2);
       }
 
       .filter-btn:hover::before {
@@ -275,7 +277,7 @@
         background: var(--gradient);
         color: var(--white);
         border-color: transparent;
-        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.3);
+        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.3);
       }
 
       .gallery-grid {
@@ -387,7 +389,7 @@
         transition: var(--transition);
         flex-grow: 1;
         margin-right: 10px;
-        box-shadow: 0 5px 15px rgba(193, 77, 176, 0.3);
+        box-shadow: 0 5px 15px rgba(139, 107, 74, 0.3);
         position: relative;
         overflow: hidden;
       }
@@ -406,7 +408,7 @@
 
       .view-btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(193, 77, 176, 0.4);
+        box-shadow: 0 8px 20px rgba(139, 107, 74, 0.4);
       }
 
       .view-btn:hover::after {
@@ -430,15 +432,15 @@
       }
 
       .favorite-btn:hover {
-        color: var(--primary-color);
+        color: var(--primary-dark);
         border-color: var(--primary-light);
         transform: scale(1.1);
       }
 
       .favorite-btn.active {
-        color: var(--primary-color);
+        color: var(--primary-dark);
         border-color: var(--primary-light);
-        background: rgba(193, 77, 176, 0.1);
+        background: rgba(139, 107, 74, 0.1);
       }
 
       .lightbox {
@@ -574,7 +576,7 @@
         color: var(--white);
         border-color: transparent;
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.2);
+        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.2);
       }
 
       .page-btn.active {
@@ -582,7 +584,7 @@
         color: var(--white);
         border-color: transparent;
         transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(193, 77, 176, 0.3);
+        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.3);
       }
 
       /* Floating animation for featured item */
@@ -638,7 +640,7 @@
         }
 
         .navbar-link.active {
-          background: rgba(193, 77, 176, 0.1);
+          background: rgba(139, 107, 74, 0.1);
         }
 
         .gallery-grid {

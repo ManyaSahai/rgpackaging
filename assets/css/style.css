@@ -99,7 +99,7 @@ h4,
 h5,
 h6 {
   font-family: "Montserrat", sans-serif;
-  color: #c71297;
+  color: brown;
 }
 
 ul {
@@ -425,7 +425,7 @@ a:focus {
   left: 0;
   top: 0;
   width: 100%;
-  background: #c14db0;
+  background: #6f4e37;
   z-index: 1200;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
@@ -2202,11 +2202,11 @@ image {
   border-radius: 0;
   margin-top: 22px;
   background: #fff;
-  color: #c14db0;
+  color: #6f4e37;
   font-weight: 400;
 }
 .header-area.header-style-2 {
-  background: #c14db0;
+  background: #6f4e37;
   position: relative;
   z-index: 9999;
 }
@@ -2216,7 +2216,7 @@ image {
 }
 .header-area.header-style-2 .main-menu nav ul li ul li:hover > a,
 .header-area.header-style-2 .main-menu nav ul li ul li.active > a {
-  color: #c14db0;
+  color: #6f4e37;
 }
 .hero-slider-wrapper.hero-style-1.hero-style-3 .slide-caption {
   z-index: 19;
@@ -2256,7 +2256,8 @@ image {
   margin-top: 48px;
   z-index: 99;
 }
-.about-title .img-holder img {
+
+ {
   border: 10px solid #c14db0;
 }
 .about-title .img-holder {
@@ -2389,11 +2390,11 @@ image {
 }
 
 .breadcumb-wrap ul li a:hover {
-  color: #c14db0;
+  color: #bdbda2;
 }
 
 .breadcumb-wrap ul li:last-child {
-  color: #c14db0;
+  color: #bdbda2;
 }
 
 .breadcumb-wrap ul li:after {
@@ -3322,7 +3323,7 @@ image {
   display: block;
 }
 .theme-btn-s3 {
-  background-color: #c14db0;
+  background-color: #823a3a;
   font-size: 15px;
   font-weight: 700;
   color: #fff;

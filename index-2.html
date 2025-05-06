@@ -32,34 +32,100 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <style>
+        .social-links svg {
+    margin-top: 8px; /* Adjust value as needed */
+}
+
+    
+        :root {
+            --primary-brown: #6F4E37;
+            --secondary-cream: #FFF8E1;
+            --accent-light-brown: #D2B48C;
+            --dark-brown: #5D4037;
+            --text-dark: #3E2723;
+            --text-light: #FFF8E1;
+        }
+        
+        body {
+            color: var(--text-dark);
+            background-color: #f9f5f0;
+        }
+        
+        .service-item {
+            background-color: var(--secondary-cream);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--accent-light-brown);
+        }
+        
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-img-container {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-image {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+        
+        .service-item h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+        
+        .service-description {
+            color: var(--text-dark);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .service-item {
+                margin-bottom: 20px;
+            }
+        }
+        
         .pkgGallery-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: white;
-    cursor: pointer;
-    padding: 16px;
-    background-color: rgba(0,0,0,0.3);
-    z-index: 10;
-    user-select: none;
-    transition: background-color 0.3s;
-}
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            padding: 16px;
+            background-color: rgba(0,0,0,0.3);
+            z-index: 10;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
 
-.pkgGallery-arrow:hover {
-    background-color: rgba(0,0,0,0.6);
-}
+        .pkgGallery-arrow:hover {
+            background-color: rgba(0,0,0,0.6);
+        }
 
-.pkgGallery-arrow-left {
-    left: 10px;
-    border-radius: 0 3px 3px 0;
-}
+        .pkgGallery-arrow-left {
+            left: 10px;
+            border-radius: 0 3px 3px 0;
+        }
 
-.pkgGallery-arrow-right {
-    right: 10px;
-    border-radius: 3px 0 0 3px;
-}
-         .pkgGallery-container {
+        .pkgGallery-arrow-right {
+            right: 10px;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .pkgGallery-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -73,7 +139,7 @@
         }
         
         .pkgGallery-section-title h1 {
-            color: #d66cc5;
+            color: var(--primary-brown);
             font-size: 36px;
             margin-bottom: 10px;
             position: relative;
@@ -86,7 +152,7 @@
             position: absolute;
             width: 60%;
             height: 3px;
-            background: linear-gradient(90deg, #eb2fc2, #c949be);
+            background: linear-gradient(90deg, var(--primary-brown), var(--dark-brown));
             bottom: -10px;
             left: 20%;
             font-weight: bold;
@@ -95,7 +161,6 @@
         .pkgGallery-section-title p {
             color: #666;
             font-size: 18px;
-            font-weight: bold;
             font-weight: bold;
         }
         
@@ -163,18 +228,16 @@
             transform: scale(1.3);
         }
         
-       
         /* See More Button */
         .pkgGallery-see-more {
             text-align: center;
             margin-top: 30px;
-         
         }
         
         .pkgGallery-btn {
             display: inline-block;
             padding: 12px 30px;
-            background: linear-gradient(135deg, #d641cf, #d807dc);
+            background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
             color: white;
             text-decoration: none;
             border-radius: 30px;
@@ -184,12 +247,12 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(237, 135, 222, 0.3);
+            box-shadow: 0 5px 15px rgba(111, 78, 55, 0.3);
         }
         
         .pkgGallery-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(215, 119, 183, 0.4);
+            box-shadow: 0 8px 25px rgba(111, 78, 55, 0.4);
         }
         
         .pkgGallery-btn:before {
@@ -260,101 +323,174 @@
         }
    
         .work_flow {
-        background-color: #f8f8f8;
-        text-align: center;
-        padding: 50px;
-        height: 100vh;
-        h1{
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 50px;
+            height: 100vh;
+        }
+        
+        .work_flow h1 {
             padding-bottom: 24px;
+            color: var(--primary-brown);
         }
-    }
-    
-    .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: auto;
-    }
-    
-    .timeline::after {
-        content: '';
-        position: absolute;
-        width: 4px;
-        background: #d66cc5;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -2px;
-    }
-    
-    .step {
-        position: relative;
-        background: white;
-        max-width: 60%;
-        width: 90%;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.5s ease-in-out;
-    }
-    
-    .step.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .step.left {
-        left: -10%;
-        text-align: right;
-    }
-    
-    .step.right {
-        left: 50%;
-        text-align: left;
-    }
-    
-    .icon {
-        font-size: 25px;
-        display: inline-block;
-        margin-right: 10px;
-    }
-    
-    .content {
-        display: flex;
-        align-items: center;
-    }
-    .header-area {
-        background-color:#d66cc5
-    }
-    
-    /* Responsive Styles */
-    @media screen and (max-width: 768px) {
-        .timeline{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
         }
+        
         .timeline::after {
-            left: 20px;
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--primary-brown);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
         }
-    
+        
         .step {
-            width: 80%;
-            max-width: 100%;
-            left: 0;
-            text-align: left;
-            margin-left: 40px;
+            position: relative;
+            background: white;
+            max-width: 60%;
+            width: 90%;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+            border: 1px solid var(--accent-light-brown);
         }
-    
-        .step.left, .step.right {
-            left: 0;
+        
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .step.left {
+            left: -10%;
+            text-align: right;
+        }
+        
+        .step.right {
+            left: 50%;
             text-align: left;
         }
-    }
-    
+        
+        .icon {
+            font-size: 25px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-area {
+            background-color: var(--primary-brown);
+        }
+        
+        /* Button styles */
+        .btn-style a {
+            background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(111, 78, 55, 0.3);
+        }
+        
+        .btn-style a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(111, 78, 55, 0.4);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-brown);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: var(--dark-brown);
+            color: var(--text-light);
+        }
+        
+        .footer-bottom {
+            background-color: #4E342E;
+        }
+        
+        /* Text colors */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-brown);
+        }
+        
+        /* Links */
+        a {
+            color: var(--primary-brown);
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--dark-brown);
+            text-decoration: none;
+        }
+        
+        /* Testimonial area */
+        .testimonial-content h1 {
+            color: var(--text-light);
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .timeline {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .timeline::after {
+                left: 20px;
+            }
+        
+            .step {
+                width: 80%;
+                max-width: 100%;
+                left: 0;
+                text-align: left;
+                margin-left: 40px;
+            }
+        
+            .step.left, .step.right {
+                left: 0;
+                text-align: left;
+            }
+        }
+        
+        /* Hero section adjustments */
+        .hero-style-1 .slide-caption h2 span {
+            color: var(--text-light);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Features area */
+        .features-text h3 {
+            color: var(--dark-brown);
+        }
+        
+        /* About section */
+        .about-content h2 {
+            color: var(--dark-brown);
+        }
     </style>
 </head>
 
@@ -482,7 +618,7 @@
     <!-- about-area end -->
 
     <!--why choose us-->
-    <section style="  font-family: 'Montserrat', sans-serif;">
+    <section style="font-family: 'Montserrat', sans-serif; ">
         <!-- testimonial-area start -->
         <div class="testimonial-area">
             <div class="container">
@@ -493,15 +629,8 @@
 
                                 <div class="testimonial-item" style="transform: translateY(5rem); background-color: transparent;">
                                     <div class="testimonial-content">
-                                        <h1 style="color: #fff;">Why Choose RG Packaging &quest;</h1>
+                                        <h1 style="color: var(--text-light);">Why Choose RG Packaging &quest;</h1>
                                         <br>
-                                        <!-- <p>
-                                            Packaging is more than a necessity; it&apos;s your brand&apos;s first impression. At RG
-                                            Packaging, we ensure that every product we pack reflects your brand&apos;s commitment
-                                            to quality, hygiene, and excellence. Whether for domestic shelves or
-                                            international markets, we make your packaging work as a powerful extension of
-                                            your brand story.
-                                        </p> -->
                                     </div>
 
                                 </div>
@@ -512,7 +641,7 @@
                                 <div class="testimonial-item" style="height: 300px; transform: translateY(3rem);background-color: transparent;">
                                     <div class="testimonial-content"  >
                                         <img src="assets/images/icon/1.png" style="width: 110px; height: 110px; object-fit: contain; transform: translateX(195px);" alt="">
-                                        <p class="icon-1" style="color: #fff; font-size: 24px;">
+                                        <p class="icon-1" style="color: var(--text-light); font-size: 24px;">
                                             Premium Packaging, Unmatched Quality
                                         </p>
                                     </div>
@@ -526,7 +655,7 @@
                                 <div class="testimonial-item" style="height: 300px; transform: translateY(3rem); background-color: transparent;">
                                     <div class="testimonial-content"  >
                                         <img src="assets/images/icon/storehouse.png" style="width: 110px; height: 110px; object-fit: contain; transform: translateX(195px); border-radius: 50%;" alt="">
-                                        <p class="icon-2" style="color: #fff;">
+                                        <p class="icon-2" style="color: var(--text-light);">
                                             Facility & Warehouse
                                         </p>
                                     </div>
@@ -538,7 +667,7 @@
                                 <div class="testimonial-item" style="height: 300px; transform: translateY(3rem); background-color: transparent;">
                                     <div class="testimonial-content"  >
                                         <img src="assets/images/icon/3.png" style="width: 110px; height: 110px; object-fit: contain; transform: translateX(195px);" alt="">
-                                        <p class="icon-3" style="color: #fff;">
+                                        <p class="icon-3" style="color: var(--text-light);">
                                             Flexible & Scalable Packaging
                                         </p>
                                     </div>
@@ -550,7 +679,7 @@
                                 <div class="testimonial-item" style="height: 300px; transform: translateY(3rem); background-color: transparent;">
                                     <div class="testimonial-content"  >
                                         <img src="assets/images/icon/4.png" style="width: 110px; height: 110px; object-fit: contain; transform: translateX(195px);" alt="">
-                                        <p class="icon-4" style="color: #fff;">
+                                        <p class="icon-4" style="color: var(--text-light);">
                                             Future-Ready Packaging
                                         </p>
                                     </div>
@@ -566,103 +695,147 @@
     </section>
 
 
-    <!-- service-area start-->
     <section class="Service" id="service">
         <div class="service-area service-s2">
             <div class="container">
                 <div class="col-l2">
-                    <div class="section-title text-center">
-                        <!-- <span>We Provide the Best</span> -->
-                        <h1 style="font-weight: bold; font-size: 48px;">Our Service</h1>
+                    <div class="section-title text-center mb-5">
+                        <h1 style="font-weight: bold; font-size: 48px;">Our Services</h1>
+                        <p class="mt-3">Premium packaging solutions tailored to your needs</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <div class="service-single">
-                                <div class="service-icon">
-                                    <img src="assets/images/about/package.png" style="max-width: 68%;
-  mix-blend-mode: multiply;
-  background-color: transparent;" alt="">
+                <div class="row g-4">
+                    <!-- Row 1 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/services.webp" class="service-image" alt="Customized Packing Services">
                                 </div>
-                                <h2>Customized Packing <br> Services</h2>
-                                <p>Tailored packaging solutions for diverse product lines, ensuring your brand’s
-                                    identity shines through.</p>
                             </div>
+                            <h2 class="mt-4 mb-3">Customized Packing Services</h2>
+                            <p class="service-description">Tailored packaging solutions for diverse product lines, ensuring your brand's identity shines through.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <div class="service-single">
-                                <div class="service-icon">
-                                    <img src="assets/images/about/Vaccum%20Packaging%5b1%5d.png" style="max-width: 68%;
-  mix-blend-mode: multiply;
-  background-color: transparent;" alt="">
+                    
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/Vacuum.webp" class="service-image" alt="Vacuum Packing">
                                 </div>
-                                <h2>Vacuum <br> Packing</h2>
-                                <p> Ideal for preserving freshness and extending the shelf life of perishable goods.</p>
                             </div>
+                            <h2 class="mt-4 mb-3">Vacuum Packing</h2>
+                            <p class="service-description">Ideal for preserving freshness and extending the shelf life of perishable goods.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <div class="service-single">
-                                <div class="service-icon">
-                                    <img src="assets/images/about/N2%5b1%5d.png" style="max-width: 68%;
-  mix-blend-mode: multiply;
-  background-color: transparent;" alt="">
+                    
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/nitrogen.jpg" class="service-image" alt="Nitrogen Packing">
                                 </div>
-                                <h2>Nitrogen <br> Packing</h2>
-                                <p>Ensures product integrity by preventing oxidation, perfect for dry goods like snacks
-                                    and spices..</p>
                             </div>
+                            <h2 class="mt-4 mb-3">Nitrogen Packing</h2>
+                            <p class="service-description">Ensures product integrity by preventing oxidation, perfect for dry goods like snacks and spices.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <div class="service-single">
-                                <div class="service-icon">
-                                    <img src="assets/images/about/JAR%20PACKAGING%5b1%5d.png" style="max-width: 68%;
-  mix-blend-mode: multiply;
-  background-color: transparent;" alt="">
+                    
+                    <!-- Row 2 -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/jar.webp" class="service-image" alt="Jar Packing">
                                 </div>
-                                <h2>Jar <br> Packing</h2>
-                                <p>High-quality jar packaging solutions for preserves, spreads, and specialty products.
-                                </p>
                             </div>
+                            <h2 class="mt-4 mb-3">Jar Packing</h2>
+                            <p class="service-description">High-quality jar packaging solutions for preserves, spreads, and specialty products.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <div class="service-single">
-                                <div class="service-icon">
-                                    <img src="assets/images/about/Labelling%20Services%5b1%5d.png" style="max-width: 68%;
-  mix-blend-mode: multiply;
-  background-color: transparent;" alt="">
+                    
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/labeling.jpg" class="service-image" alt="Labelling Services">
                                 </div>
-                                <h2>Labelling <br> Services</h2>
-                                <p>Professionally designed and precisely applied labeling to enhance brand visibility
-                                    and product appeal.</p>
                             </div>
+                            <h2 class="mt-4 mb-3">Labelling Services</h2>
+                            <p class="service-description">Professionally designed and precisely applied labeling to enhance brand visibility and product appeal.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6">
-                        <div class="service-item">
-                            <div class="service-single">
-                                <div class="service-icon">
-                                    <img src="assets/images/about/sorting.png" style="max-width: 65%;
-  mix-blend-mode: multiply;
-  background-color: transparent;" alt="">
+                    
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/clean.webp" class="service-image" alt="Sorting & Cleaning">
                                 </div>
-                                <h2>Sorting &amp; <br> Cleaning</h2>
-                                <p>Ensures only the best products are packed, maintaining consistency and quality.</p>
                             </div>
+                            <h2 class="mt-4 mb-3">Sorting & Cleaning</h2>
+                            <p class="service-description">Ensures only the best products are packed, maintaining consistency and quality.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3 - Single centered item -->
+                    <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
+                        <div class="service-item text-center p-4 h-100">
+                            <div class="service-img-container">
+                                <div class="circular-img-wrapper">
+                                    <img src="assets/images/service/corporate.webp" class="service-image" alt="Corporate Gifting">
+                                </div>
+                            </div>
+                            <h2 class="mt-4 mb-3">Corporate Gifting</h2>
+                            <p class="service-description">Elegant packaging solutions for corporate gifts that leave a lasting impression.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <style>
+            /* Circular image styles */
+            .circular-img-wrapper {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f8f9fa;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            .service-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            
+            .circular-img-wrapper:hover .service-image {
+                transform: scale(1.1);
+            }
+            
+            /* Service item styles enhancement */
+            .service-item {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                border-radius: 12px;
+                background-color: white;
+                box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            }
+            
+            .service-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        </style>
     </section>
+    
     <!-- service-area end-->
 
     <!-- feature-area start -->
@@ -670,8 +843,8 @@
         <div class="features-area features-style-2">
             <div class="container">
                 <div class="section-title text-center">
-                    <span style="font-size: 46px;">We Provide the Best</span>
-                    <h1 style="font-size: 36px; font-weight: bold;">Quality Packaging</h1>
+                    
+                    <h1 style="font-size: 36px; font-weight: bold;"> We Pack Better</h1>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
@@ -736,52 +909,9 @@
 
         </div>
     </section>
-    <!-- feature-area start -->
-
-    <!--work flow start-->
-    <!-- <section class="work_flow">
-        <h1>Food Packaging Process</h1>
-        <div class="timeline">
-            <div class="step left">
-                <div class="content">
-                    <span class="icon">🌾</span> 
-                    <h4 style="text-align: left;">
-                        Sourcing: Fresh ingredients & materials imported
-                    </h4>
-                    
-                </div>
-            </div>
-            <div class="step right">
-                <div class="content">
-                    <span class="icon">🔪</span> 
-                    <h4 style="text-align: left;">
-                        Processing: Ingredients prepared & quality checked
-                    </h4>
-                </div>
-            </div>
-            <div class="step left">
-                <div class="content">
-                    <span class="icon">📦</span>
-                    <h4 style="text-align: left;">
-                        Packaging: Hygienic & secure sealing of products
-                    </h4>
-                </div>
-            </div>
-            <div class="step right">
-                <div class="content">
-                    <span class="icon">🚚</span> 
-                    <h4 style="text-align: left;">
-                        Delivery: Packed goods shipped to customers
-                    </h4>
-                    
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--work flow end-->
 
 
-    <section class="cta-section" style="background-color: #d66cc5">
+    <section class="cta-section" style="background-color: #6F4E37"> <!-- Changed to coffee brown -->
         <div class="pattern-layer">
             <div class="pattern-1" style="background-image: url(assets/images/shape/shape-10.png);"></div>
             <div class="pattern-2" style="background-image: url(assets/images/shape/shape-2.png);"></div>
@@ -797,22 +927,22 @@
                     <div class="content_block_3">
                         <div class="content-box" style="text-align: left; transform: translateX(125px);">
                             <div class="sec-title light">
-                                <h2 style="color: #fff; transform: translateY(-40px);">Why Packaging Matters &quest;</h2>
+                                <h2 style="color: #FFF8E1; transform: translateY(-40px);">Why Packaging Matters &quest;</h2> <!-- Changed to cream color -->
                             </div>
                             <div class="text">
                                 <p></p>
                             </div>
                             <ul class="list clearfix" style="text-align: left; transform: translateX(-40px);">
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">First Impressions Matter</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Quality Assurance</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Hygiene Standards</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Brand Storytelling</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Domestic & International Appeal</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Excellence in Every Pack</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Custom Solutions</li>
-                                <li><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px;" alt="">Sustainable Practices</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">First Impressions Matter</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Quality Assurance</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Hygiene Standards</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Brand Storytelling</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Domestic & International Appeal</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Excellence in Every Pack</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Custom Solutions</li>
+                                <li style="color: #FFF8E1;"><img src="assets/images/icon/accept.png" style="width: 24px; height:auto; object-fit:contain; margin-right:8px; filter: brightness(0) invert(1);" alt="">Sustainable Practices</li>
                             </ul>
-                            <div class="btn-style" ><a href="#" style="border: 50px;" tabindex="-1">Contact us now</a></div>
+                            <div class="btn-style"><a href="#" style="background: linear-gradient(135deg, #8D6E63, #5D4037); border: none;">Contact us now</a></div> <!-- Updated button colors -->
                         </div>
                     </div>
                 </div>
@@ -823,8 +953,8 @@
     <section class="gallery-preview">
         <div class="pkgGallery-container pkgGallery-fadeIn">
             <div class="pkgGallery-section-title">
-                <h1>Our Packaging Gallery</h1>
-                <p>A glimpse of our premium packaging solutions and state-of-the-art machinery</p>
+                <h1 style="color: #5D4037;">Our Packaging Gallery</h1> <!-- Dark brown text -->
+                <p style="color: #6F4E37;">A glimpse of our premium packaging solutions and state-of-the-art machinery</p> <!-- Coffee brown text -->
             </div>
             
             <!-- Featured Image Slider -->
@@ -835,26 +965,26 @@
                 <!-- Slides -->
                 <div class="pkgGallery-slide active" style="background-image: url('assets/images/about/Auger.jpeg')">
                     <div class="pkgGallery-slide-content">
-                        <h3>Industrial Auger</h3>
-                        <p style="color: #ffffff;">Our high-precision industrial auger ensures accurate filling and consistent quality in every package.</p>
+                        <h3  >Industrial Auger</h3>
+                        <p style="color: #FFF8E1;">Our high-precision industrial auger ensures accurate filling and consistent quality in every package.</p>
                     </div>
                 </div>
                 <div class="pkgGallery-slide" style="background-image: url('assets/images/about/multiheadvffs.jpeg')">
                     <div class="pkgGallery-slide-content">
                         <h3>Multihead Machine</h3>
-                        <p style="color: #ffffff;">Advanced multihead weighing system for optimal speed and precision in packaging operations.</p>
+                        <p style="color: #FFF8E1;">Advanced multihead weighing system for optimal speed and precision in packaging operations.</p>
                     </div>
                 </div>
                 <div class="pkgGallery-slide" style="background-image: url('assets/images/about/Shrink.jpeg')">
                     <div class="pkgGallery-slide-content">
                         <h3>Shrink Wrap Machine</h3>
-                        <p style="color: #ffffff;">State-of-the-art shrink wrapping technology for secure and appealing product presentation.</p>
+                        <p style="color: #FFF8E1;">State-of-the-art shrink wrapping technology for secure and appealing product presentation.</p>
                     </div>
                 </div>
                 <div class="pkgGallery-slide" style="background-image: url('assets/images/about/Vacuum.jpeg')">
                     <div class="pkgGallery-slide-content">
                         <h3>Vacuum Packaging Machine</h3>
-                        <p style="color: #ffffff;">Premium vacuum sealing solutions that extend shelf life and maintain product freshness.</p>
+                        <p style="color: #FFF8E1;">Premium vacuum sealing solutions that extend shelf life and maintain product freshness.</p>
                     </div>
                 </div>
                 
@@ -872,91 +1002,236 @@
             
             <!-- Gallery Grid -->
             <div class="pkgGallery-see-more">
-                <a href="gallery.html" class="pkgGallery-btn">
+                <a href="gallery.html" class="pkgGallery-btn" style="background: linear-gradient(135deg, #6F4E37, #5D4037);">
                     View More
                 </a>
             </div>
         </div>
     </section>
+
+      <!-- Testimonial Section -->
+   <section class="testimonials-section" style="padding: 80px 0; background-color: #FFF8E1;">
+    <div class="auto-container" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+        <div class="section-title text-center" style="margin-bottom: 40px;">
+            <h2 style="color: #5D4037; font-size: clamp(28px, 5vw, 36px); margin-bottom: 15px;">What Our Clients Say</h2>
+            <p style="color: #6F4E37; font-size: clamp(16px, 3vw, 18px); max-width: 700px; margin: 0 auto;">Trusted by leading brands across industries for premium packaging solutions</p>
+        </div>
+        
+        <div class="testimonial-carousel" style="width: 100%;">
+            <!-- Testimonial Slider Controls -->
+            <div class="testimonial-controls" style="text-align: center; margin-bottom: 30px;">
+                <span class="testimonial-arrow testimonial-prev" style="cursor: pointer; display: inline-block; margin: 0 10px; color: #5D4037; font-size: clamp(20px, 4vw, 24px);">&#10094;</span>
+                <span class="testimonial-dots" style="display: inline-block;">
+                    <span class="testimonial-dot active" data-index="0" style="height: 12px; width: 12px; background-color: #5D4037; border-radius: 50%; display: inline-block; margin: 0 5px; cursor: pointer;"></span>
+                    <span class="testimonial-dot" data-index="1" style="height: 12px; width: 12px; background-color: #D2B48C; border-radius: 50%; display: inline-block; margin: 0 5px; cursor: pointer;"></span>
+                    <span class="testimonial-dot" data-index="2" style="height: 12px; width: 12px; background-color: #D2B48C; border-radius: 50%; display: inline-block; margin: 0 5px; cursor: pointer;"></span>
+                </span>
+                <span class="testimonial-arrow testimonial-next" style="cursor: pointer; display: inline-block; margin: 0 10px; color: #5D4037; font-size: clamp(20px, 4vw, 24px);">&#10095;</span>
+            </div>
+            
+            <!-- Testimonial Cards Container -->
+            <div class="testimonial-container" style="display: flex; overflow: hidden; position: relative; width: 100%;">
+                <!-- Testimonial Cards -->
+                <div class="testimonial-cards" style="display: flex; transition: transform 0.5s ease; width: 100%;">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card active" style="flex: 0 0 100%; background-color: #FFFFFF; border-radius: 15px; padding: clamp(15px, 4vw, 30px); box-shadow: 0 5px 20px rgba(93, 64, 55, 0.1); position: relative; margin: 10px; width: 100%;">
+                        <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; opacity: 0.1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#5D4037" viewBox="0 0 24 24">
+                                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                            </svg>
+                        </div>
+                        <div class="testimonial-rating" style="margin-bottom: 15px; color: #D4AF37;">
+                            ★★★★★
+                        </div>
+                        <p class="testimonial-text" style="font-size: clamp(14px, 3vw, 16px); line-height: 1.6; color: #5D4037; margin-bottom: 20px; font-style: italic;">
+                            "RG Packaging has consistently delivered high-quality packaging solutions for our food products. Their attention to detail and commitment to meeting our specific requirements has significantly improved our product presentation and shelf life."
+                        </p>
+                        <div class="testimonial-author" style="display: flex; align-items: center; flex-wrap: wrap;">
+                            <div class="author-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 15px; margin-bottom: 10px; background-color: #D2B48C; display: flex; justify-content: center; align-items: center;">
+                                <span style="color: #5D4037; font-weight: bold; font-size: 24px;">AM</span>
+                            </div>
+                            <div class="author-info" style="flex: 1; min-width: 150px;">
+                                <h4 style="margin: 0; color: #5D4037; font-weight: bold; font-size: clamp(16px, 3vw, 18px);">Anita Mehta</h4>
+                                <p style="margin: 0; color: #6F4E37; font-size: clamp(12px, 2vw, 14px);">Production Head, Flavor Delight Foods</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card" style="flex: 0 0 100%; background-color: #FFFFFF; border-radius: 15px; padding: clamp(15px, 4vw, 30px); box-shadow: 0 5px 20px rgba(93, 64, 55, 0.1); position: relative; margin: 10px; width: 100%;">
+                        <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; opacity: 0.1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#5D4037" viewBox="0 0 24 24">
+                                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                            </svg>
+                        </div>
+                        <div class="testimonial-rating" style="margin-bottom: 15px; color: #D4AF37;">
+                            ★★★★★
+                        </div>
+                        <p class="testimonial-text" style="font-size: clamp(14px, 3vw, 16px); line-height: 1.6; color: #5D4037; margin-bottom: 20px; font-style: italic;">
+                            "We've partnered with RG Packaging for over 5 years now. Their vacuum packaging solutions have helped us extend our product shelf life by 40%, significantly reducing wastage and improving customer satisfaction. Their team is responsive and knowledgeable."
+                        </p>
+                        <div class="testimonial-author" style="display: flex; align-items: center; flex-wrap: wrap;">
+                            <div class="author-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 15px; margin-bottom: 10px; background-color: #D2B48C; display: flex; justify-content: center; align-items: center;">
+                                <span style="color: #5D4037; font-weight: bold; font-size: 24px;">RP</span>
+                            </div>
+                            <div class="author-info" style="flex: 1; min-width: 150px;">
+                                <h4 style="margin: 0; color: #5D4037; font-weight: bold; font-size: clamp(16px, 3vw, 18px);">Rajiv Patel</h4>
+                                <p style="margin: 0; color: #6F4E37; font-size: clamp(12px, 2vw, 14px);">CEO, Spice Heritage Ltd.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card" style="flex: 0 0 100%; background-color: #FFFFFF; border-radius: 15px; padding: clamp(15px, 4vw, 30px); box-shadow: 0 5px 20px rgba(93, 64, 55, 0.1); position: relative; margin: 10px; width: 100%;">
+                        <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; opacity: 0.1;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#5D4037" viewBox="0 0 24 24">
+                                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                            </svg>
+                        </div>
+                        <div class="testimonial-rating" style="margin-bottom: 15px; color: #D4AF37;">
+                            ★★★★★
+                        </div>
+                        <p class="testimonial-text" style="font-size: clamp(14px, 3vw, 16px); line-height: 1.6; color: #5D4037; margin-bottom: 20px; font-style: italic;">
+                            "The multihead weighing system recommended by RG Packaging increased our production speed by 35% while maintaining accuracy. Their consultation services helped us choose the right equipment for our specific needs. Excellent service and support throughout."
+                        </p>
+                        <div class="testimonial-author" style="display: flex; align-items: center; flex-wrap: wrap;">
+                            <div class="author-image" style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 15px; margin-bottom: 10px; background-color: #D2B48C; display: flex; justify-content: center; align-items: center;">
+                                <span style="color: #5D4037; font-weight: bold; font-size: 24px;">SD</span>
+                            </div>
+                            <div class="author-info" style="flex: 1; min-width: 150px;">
+                                <h4 style="margin: 0; color: #5D4037; font-weight: bold; font-size: clamp(16px, 3vw, 18px);">Sanjay Desai</h4>
+                                <p style="margin: 0; color: #6F4E37; font-size: clamp(12px, 2vw, 14px);">Operations Director, NutriSnack Industries</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="testimonial-cta text-center" style="margin-top: 40px;">
+            <a href="contact.html" class="testimonial-btn" style="display: inline-block; padding: clamp(10px, 3vw, 12px) clamp(20px, 5vw, 30px); background: linear-gradient(135deg, #6F4E37, #5D4037); color: #FFF8E1; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s ease;">
+                Share Your Experience
+            </a>
+        </div>
+    </div>
     
+    <!-- Simple JavaScript for Testimonial Carousel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.pkgGallery-slide');
-            const dots = document.querySelectorAll('.pkgGallery-dot');
-            const prevArrow = document.querySelector('.pkgGallery-arrow-left');
-            const nextArrow = document.querySelector('.pkgGallery-arrow-right');
+            // Get elements
+            const cards = document.querySelectorAll('.testimonial-card');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            const prevBtn = document.querySelector('.testimonial-prev');
+            const nextBtn = document.querySelector('.testimonial-next');
+            const cardsContainer = document.querySelector('.testimonial-cards');
+            
             let currentIndex = 0;
-            let slideInterval;
-    
-            // Function to show slide
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
+            const totalCards = cards.length;
+            let autoplayInterval;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            // Function to update carousel
+            function updateCarousel() {
+                // Update transform to show current card
+                cardsContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
                 
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-                currentIndex = index;
-            }
-    
-            // Function to go to next slide
-            function nextSlide() {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= slides.length) newIndex = 0;
-                showSlide(newIndex);
-            }
-    
-            // Function to start autoplay
-            function startAutoplay() {
-                slideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
-            }
-    
-            // Initialize slider
-            function initSlider() {
-                showSlide(0);
-                startAutoplay();
-                
-                // Pause autoplay when hovering over slider
-                const slider = document.querySelector('.pkgGallery-featured-slider');
-                slider.addEventListener('mouseenter', () => {
-                    clearInterval(slideInterval);
+                // Update active state for dots
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.style.backgroundColor = '#5D4037';
+                        dot.classList.add('active');
+                    } else {
+                        dot.style.backgroundColor = '#D2B48C';
+                        dot.classList.remove('active');
+                    }
                 });
                 
-                slider.addEventListener('mouseleave', startAutoplay);
+                // Update active state for cards
+                cards.forEach((card, index) => {
+                    if (index === currentIndex) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
             }
-    
-            // Event listeners for arrows
-            prevArrow.addEventListener('click', () => {
-                let newIndex = currentIndex - 1;
-                if (newIndex < 0) newIndex = slides.length - 1;
-                showSlide(newIndex);
-                resetAutoplay();
-            });
-    
-            nextArrow.addEventListener('click', () => {
-                nextSlide();
-                resetAutoplay();
-            });
-    
+            
             // Event listeners for dots
-            dots.forEach(dot => {
+            dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
-                    showSlide(parseInt(dot.getAttribute('data-index')));
+                    currentIndex = index;
+                    updateCarousel();
                     resetAutoplay();
                 });
             });
-    
-            // Reset autoplay timer
+            
+            // Event listener for prev button
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                updateCarousel();
+                resetAutoplay();
+            });
+            
+            // Event listener for next button
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalCards;
+                updateCarousel();
+                resetAutoplay();
+            });
+            
+            // Touch events for mobile swipe
+            cardsContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            cardsContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                resetAutoplay();
+            }, {passive: true});
+            
+            // Handle swipe direction
+            function handleSwipe() {
+                if (touchStartX - touchEndX > 50) {
+                    // Swipe left
+                    currentIndex = (currentIndex + 1) % totalCards;
+                    updateCarousel();
+                }
+                
+                if (touchEndX - touchStartX > 50) {
+                    // Swipe right
+                    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                    updateCarousel();
+                }
+            }
+            
+            // Start autoplay
+            function startAutoplay() {
+                autoplayInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalCards;
+                    updateCarousel();
+                }, 5000);
+            }
+            
+            // Reset autoplay after user interaction
             function resetAutoplay() {
-                clearInterval(slideInterval);
+                clearInterval(autoplayInterval);
                 startAutoplay();
             }
-    
-            // Initialize the slider
-            initSlider();
+            
+            // Initialize autoplay
+            startAutoplay();
+            
+            // Handle resize events for better mobile experience
+            window.addEventListener('resize', () => {
+                updateCarousel();
+            });
         });
-    </script>      
-
-    <footer class="main-footer" id="footer" >
+    </script>
+    
+    <footer class="main-footer" id="footer" style="background-color: #5D4037;"> <!-- Dark brown background -->
         <div class="pattern-layer">
             <div class="pattern-1" style="background-image: url(assets/images/shape/shape-12.png);"></div>
             <div class="pattern-2" style="background-image: url(assets/images/shape/shape-13.png);"></div>
@@ -966,12 +1241,13 @@
             <div class="footer-top clearfix" style="justify-content: space-between;">
                 <div class="line-shape" style="background-image: url(assets/images/shape/shape-11.png);"></div>
                 <div class="text pull-left" style="transform: translateX(150px);">
-                    <h2>Give us a <span>Call</span> Today!</h2>
+                    <h2 style="color: #D2B48C;">Give us a <span style="color: #FFF8E1;">Call</span> Today!</h2> <!-- Light brown and cream colors -->
                 </div>
                 <div class="support-box pull-right">
-                    <a href="tel:+91-98920-48932">
-                        <img src="assets/images/icon/call.svg" alt="" class="call-icon">+9198920-48932
-                    </a>
+                    <a href="tel:+91-98920-48932" style="color: #000000;">
+                        <img src="assets/images/icon/call.svg" alt="" class="call-icon" style="filter: black;">
+                        +9198920-48932
+                        
                 </div>
             </div>
             
@@ -980,14 +1256,11 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="footer-widget logo-widget">
                             <figure class="footer-logo"><a href='index-2.html'><img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" style="background-color: transparent; width: 75px; height: auto; object-fit: contain; transform: translateX(6px);"  alt=""></a></figure>
-                            <!-- <div class="text">
-                                <p>Nostrud exertation ullamco labor nisi aliquip commodo duis.</p>
-                            </div> -->
                             <div class="schedule-box" style="transform: translateX(150px);">
-                                <h6 style="text-align: left;">Open Hours:</h6>
+                                <h6 style="text-align: left; color: #D2B48C;">Open Hours:</h6> <!-- Light brown text -->
                                 <ul class="list clearfix">
-                                    <li style="text-align: left;">Mon - Sat: 9:30 AM - 6:00 PM.</li>
-                                    <li style="text-align: left;">Sunday: Closed</li>
+                                    <li style="text-align: left; color: #FFF8E1;">Mon - Sat: 9:30 AM - 6:00 PM.</li>
+                                    <li style="text-align: left; color: #FFF8E1;">Sunday: Closed</li>
                                 </ul>
                             </div>
                         </div>
@@ -995,15 +1268,15 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="footer-widget contact-widget ml-70">
                             <div class="widget-title">
-                                <h4 style="text-align: left; transform: translateX(35px);">Address</h4>
+                                <h4 style="text-align: left; transform: translateX(35px); color: #D2B48C;">Address</h4>
                             </div>
                             <div class="widget-content">
-                                <ul class="info-list clearfix" >
-                                    <li style="text-align: left;"><img src="assets/images/icon/map.svg" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: grayscale(100%) brightness(0%);" alt="">D 329,
+                                <ul class="info-list clearfix">
+                                    <li style="text-align: left; color: #FFF8E1;"><img src="assets/images/icon/map.svg" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);" alt="">D 329,
                                         TTC Industrial Estate Turbhe, Navi Mumbai 400705
                                         </li>
-                                    <li style="text-align: left;"><img src="assets/images/icon/call.svg" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: grayscale(100%) brightness(0%);" alt="">Call Us: <a href="tel:+91-9892048932">+91-98920-48932</a></li>
-                                    <li style="text-align: left;"><img src="assets/images/icon/email.png" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: grayscale(100%) brightness(0%);" alt=""></i><a href="mailto:ravalgroup@gmail.com">ravalgroup@gmail.com</a></li>
+                                    <li style="text-align: left; color: #FFF8E1;"><img src="assets/images/icon/call.svg" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);" alt="">Call Us: <a href="tel:+91-9892048932" style="color: #FFF8E1;">+91-98920-48932</a></li>
+                                    <li style="text-align: left; color: #FFF8E1;"><img src="assets/images/icon/email.png" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);" alt=""><a href="mailto:ravalgroup@gmail.com" style="color: #FFF8E1;">ravalgroup@gmail.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1011,15 +1284,14 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="footer-widget links-widget ml-70">
                             <div class="widget-title">
-                                <h4 style="text-align: left;">Quick Links</h4>
+                                <h4 style="text-align: left; color: #D2B48C;">Quick Links</h4>
                             </div>
                             <div class="widget-content">
                                 <ul class="links-list clearfix">
-                                    <li style="text-align: left;" class="quick-link"><a href="#about">About Us</a></li>
-                                    <li style="text-align: left;" class="quick-link"><a href="#service">Services</a></li>
-                                    <li style="text-align: left;" class="quick-link"><a href="#product">Products</a></li>
-                                    <!-- <li><a href="index.html">Our Blog</a></li> -->
-                                    <li style="text-align: left;" class="quick-link"><a href='contact.html'>Contact Us</a></li>
+                                    <li style="text-align: left;" class="quick-link"><a href="#about" style="color: #FFF8E1;">About Us</a></li>
+                                    <li style="text-align: left;" class="quick-link"><a href="#service" style="color: #FFF8E1;">Services</a></li>
+                                    <li style="text-align: left;" class="quick-link"><a href="#product" style="color: #FFF8E1;">Products</a></li>
+                                    <li style="text-align: left;" class="quick-link"><a href='contact.html' style="color: #FFF8E1;">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1027,15 +1299,14 @@
                     <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                         <div class="footer-widget subscribe-widget" style="transform: translateX(-150px);">
                             <div class="widget-title">
-                                <h4 style="text-align: left;">Subscribe</h4>
+                                <h4 style="text-align: left; color: #D2B48C;">Subscribe</h4>
                             </div>
                             <div class="widget-content">
-                                <!-- <p>Lorem ipsum dolor sit amet, consect adipisicing elit sed do eiusmod.</p> -->
                                 <div class="form-inner">
                                     <form action="#" method="post">
                                         <div class="form-group">
-                                            <input type="email" name="email" placeholder="Your Email" required="">
-                                            <button type="submit" style="background-color: #fff; border-left: 1px solid black; border-right: none; border-top: none; border-bottom: none;"><img src="assets/images/icon/right-arrow.png" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; padding-bottom: 5px;" alt=""></button>
+                                            <input type="email" name="email" placeholder="Your Email" required="" style="background-color: #FFF8E1; color: #5D4037;">
+                                            <button type="submit" style="background-color: #FFF8E1; border-left: 1px solid #5D4037;"><img src="assets/images/icon/right-arrow.png" style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; padding-bottom: 5px; filter: brightness(0) invert(0.3);" alt=""></button>
                                         </div>
                                     </form>
                                 </div>
@@ -1045,26 +1316,32 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="background-color: #4E342E;"> <!-- Darker brown footer bottom -->
             <div class="auto-container">
                 <div class="bottom-inner">
                     <div class="copyright">
-                        <p><a href='index-2.html' style='text-decoration: none; color: #fff;'>RG Packaging</a> &copy; 2025 All Right Reserved</p>
+                        <p><a href='index-2.html' style='text-decoration: none; color: #D2B48C;'>RG Packaging</a> <span style="color: #FFF8E1;">&copy; 2025 All Right Reserved</span></p>
                     </div>
-                    <!-- <ul class="social-links clearfix">
-                        <li><a target="_blank" href="https://jsdl.in/RSL-NQA1738827772">
-                            <img src="./assets/images/icons/justdial.png"  alt="">
-                        </a></li>
-                        <li><a target="_blank" href="https://www.indiamart.com/premierpackaging-navimumbai/">
-                            <img src="./assets/images/icons/indiamart.png"  alt="">
-                        </a></li>
-                        <li><a target="_blank" href="https://www.linkedin.com/in/premier-packaging-a60b76235/">
-                            <img src="./assets/images/icons/linkedin.png"  alt="">
-                        </a></li>
-                    </ul> -->
+                    <ul class="social-links clearfix">
+                        <li>
+                            <a target="_blank" href="https://www.instagram.com" aria-label="Instagram" style="background-color: #FFF8E1;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5D4037" viewBox="0 0 24 24">
+                                    <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm9.25 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://www.linkedin.com" aria-label="LinkedIn" style="background-color: #FFF8E1;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5D4037" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.041-1.854-3.041-1.854 0-2.137 1.445-2.137 2.937v5.673h-3.554V9h3.414v1.561h.049c.476-.898 1.637-1.847 3.368-1.847 3.6 0 4.265 2.368 4.265 5.451v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.555C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.277V1.723C24 .771 23.2 0 22.222 0z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                    
                     <ul class="footer-nav clearfix">
-                        <li><a href='index-2.html'>Terms of Service</a></li>
-                        <li><a href='index-2.html'>Privacy Policy</a></li>
+                        <li><a href='index-2.html' style="color: #D2B48C;">Terms of Service</a></li>
+                        <li><a href='index-2.html' style="color: #D2B48C;">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -1083,39 +1360,89 @@
     <!-- Custom script for this template -->
     <script src="assets/js/script.js"></script>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-        const startPosition = window.scrollY;
-        const distance = targetPosition - startPosition;
-        const duration = 1000; // Duration in ms
-
-        let startTime = null;
-
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        }
-
-        function easeInOutCubic(t, b, c, d) {
-            t /= d / 2;
-            if (t < 1) return (c / 2) * t * t * t + b;
-            t -= 2;
-            return (c / 2) * (t * t * t + 2) + b;
-        }
-
-        requestAnimationFrame(animation);
-    });
-});
-
-
-
-    </script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select elements
+            const slides = document.querySelectorAll('.pkgGallery-slide');
+            const dots = document.querySelectorAll('.pkgGallery-dot');
+            const prevArrow = document.querySelector('.pkgGallery-arrow-left');
+            const nextArrow = document.querySelector('.pkgGallery-arrow-right');
+            let currentIndex = 0;
+            let slideInterval;
+        
+            // Function to show slide
+            function showSlide(index) {
+                // Reset all slides and dots
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Show current slide and dot
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+        
+            // Function to go to next slide
+            function nextSlide() {
+                let newIndex = (currentIndex + 1) % slides.length;
+                showSlide(newIndex);
+            }
+        
+            // Function to go to previous slide
+            function prevSlide() {
+                let newIndex = (currentIndex - 1 + slides.length) % slides.length;
+                showSlide(newIndex);
+            }
+        
+            // Start autoplay
+            function startAutoplay() {
+                slideInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            }
+        
+            // Stop autoplay
+            function stopAutoplay() {
+                clearInterval(slideInterval);
+            }
+        
+            // Initialize slider
+            function initSlider() {
+                showSlide(0);
+                startAutoplay();
+                
+                // Event listeners for arrows
+                nextArrow.addEventListener('click', () => {
+                    nextSlide();
+                    resetAutoplay();
+                });
+                
+                prevArrow.addEventListener('click', () => {
+                    prevSlide();
+                    resetAutoplay();
+                });
+                
+                // Event listeners for dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showSlide(index);
+                        resetAutoplay();
+                    });
+                });
+                
+                // Pause on hover
+                const slider = document.querySelector('.pkgGallery-featured-slider');
+                slider.addEventListener('mouseenter', stopAutoplay);
+                slider.addEventListener('mouseleave', startAutoplay);
+            }
+            
+            // Reset autoplay timer
+            function resetAutoplay() {
+                stopAutoplay();
+                startAutoplay();
+            }
+        
+            // Initialize the slider
+            initSlider();
+        });
+        </script>
 </body>
 
 <!-- Mirrored from rg-packaging.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 30 Mar 2025 18:14:49 GMT -->
