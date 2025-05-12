@@ -3771,7 +3771,14 @@ page loader
 .footer-bottom {
   position: relative;
   width: 100%;
-  background-color: #410336;
+  background-color: linear-gradient(
+    to right,
+    #6b3e26,
+    #7e5539,
+    #9c6644,
+    #7e5539,
+    #6b3e26
+  );
   padding: 4px 0px;
 }
 
@@ -3796,9 +3803,6 @@ page loader
   font-size: 15px;
   line-height: 40px;
   color: #fff;
-}
-
-.footer-bottom .copyright p a {
 }
 
 .footer-bottom .copyright p a:hover {
