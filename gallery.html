@@ -1,925 +1,886 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Gallery | RG Machinery</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      :root {
-        --primary-color: #8b6b4a;
-        --primary-light: #c4b6a0;
-        --primary-dark: #5a4a30;
-        --white: #ffffff;
-        --light-gray: #f5f5f0;
-        --dark-gray: #333333;
-        --cream: #f8f4e9;
-        --beige: #e8dcc8;
-        --gradient: linear-gradient(135deg, #8b6b4a 0%, #c4b6a0 100%);
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Gallery | RG Machinery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #8b6b4a;
+      --primary-light: #c4b6a0;
+      --primary-dark: #5a4a30;
+      --white: #ffffff;
+      --light-gray: #f5f5f0;
+      --dark-gray: #333333;
+      --cream: #f8f4e9;
+      --beige: #e8dcc8;
+      --gradient: linear-gradient(135deg, #8b6b4a 0%, #c4b6a0 100%);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.ttf) format("truetype");
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlEA.ttf) format("truetype");
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlEA.ttf) format("truetype");
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--dark-gray);
+      padding-top: 80px;
+      margin: 0 auto;
+      width: 100%;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 80px;
+      transition: var(--transition);
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .navbar-logo img {
+      height: 50px;
+      width: auto;
+      margin-right: 15px;
+      transition: var(--transition);
+    }
+
+    .navbar-logo h2 {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar-link {
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 10px 15px;
+      border-radius: 30px;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .navbar-link:hover {
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .navbar-link.active {
+      color: var(--primary-dark);
+      background: rgba(139, 107, 74, 0.1);
+    }
+
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .navbar-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-color);
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-top: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle,
+          var(--primary-light) 0%,
+          rgba(255, 255, 255, 0) 70%);
+      opacity: 0.3;
+      z-index: -1;
+      animation: pulse 8s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translateX(-50%) scale(1);
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      100% {
+        transform: translateX(-50%) scale(1.2);
+      }
+    }
+
+    header h1 {
+      color: var(--primary-dark);
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+
+    header h1::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    header p {
+      color: var(--dark-gray);
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.8;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .filter-btn {
+      background-color: var(--white);
+      color: var(--primary-dark);
+      border: 2px solid var(--primary-color);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .filter-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--gradient);
+      z-index: -1;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover {
+      color: var(--white);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(139, 107, 74, 0.2);
+    }
+
+    .filter-btn:hover::before {
+      width: 100%;
+    }
+
+    .filter-btn.active {
+      background: var(--gradient);
+      color: var(--white);
+      border-color: transparent;
+      box-shadow: 0 10px 20px rgba(139, 107, 74, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .gallery-item {
+      background-color: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s forwards;
+      position: relative;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 1;
+    }
+
+    .gallery-item:hover::before {
+      opacity: 0.1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background-color: #000;
+    }
+
+    .gallery-item-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+      position: relative;
+      z-index: 2;
+      background: var(--white);
+    }
+
+    .gallery-item-content h3 {
+      font-size: 1.3rem;
+      color: var(--dark-gray);
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .item-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .view-btn {
+      background: var(--gradient);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      flex-grow: 1;
+      margin-right: 10px;
+      box-shadow: 0 5px 15px rgba(139, 107, 74, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .view-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-100%) skewX(-15deg);
+      transition: var(--transition);
+    }
+
+    .view-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(139, 107, 74, 0.4);
+    }
+
+    .view-btn:hover::after {
+      transform: translateX(100%) skewX(-15deg);
+    }
+
+    .favorite-btn {
+      background: var(--white);
+      border: 2px solid #eee;
+      color: #999;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 8px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .favorite-btn:hover {
+      color: var(--primary-dark);
+      border-color: var(--primary-light);
+      transform: scale(1.1);
+    }
+
+    .favorite-btn.active {
+      color: var(--primary-dark);
+      border-color: var(--primary-light);
+      background: rgba(139, 107, 74, 0.1);
+    }
+
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1010;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80%;
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+
+    .lightbox.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-content img,
+    .lightbox-content video {
+      max-width: 100%;
+      max-height: 75vh;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 30px;
+      color: var(--white);
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1020;
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+
+    .lightbox-close:hover {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+
+    .lightbox-caption {
+      color: var(--white);
+      text-align: center;
+      margin-top: 25px;
+      padding: 0 20px;
+      font-size: 1.3rem;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease 0.2s;
+    }
+
+    .lightbox.active .lightbox-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .lightbox-product-container {
+      display: flex;
+      flex-direction: column;
+      max-width: 800px;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .lightbox-product-container img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+    }
+
+    .lightbox-description {
+      padding: 25px;
+      color: var(--dark-gray);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 60px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .page-btn {
+      background-color: var(--white);
+      border: 1px solid #ddd;
+      color: var(--dark-gray);
+      margin: 0 5px;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+
+    .page-btn:hover {
+      background: var(--gradient);
+      color: var(--white);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(139, 107, 74, 0.2);
+    }
+
+    .page-btn.active {
+      background: var(--gradient);
+      color: var(--white);
+      border-color: transparent;
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(139, 107, 74, 0.3);
+    }
+
+    /* Floating animation for featured item */
+    .featured-item {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
       }
 
-      @font-face {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 400;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.ttf)
-          format("truetype");
-      }
-      @font-face {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 600;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlEA.ttf)
-          format("truetype");
-      }
-      @font-face {
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 700;
-        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlEA.ttf)
-          format("truetype");
+      50% {
+        transform: translateY(-15px);
       }
 
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Mobile menu styles */
+    @media (max-width: 768px) {
       body {
-        background-color: var(--cream);
-        color: var(--dark-gray);
-        padding-top: 80px;
-        margin: 0 auto;
-        width: 100%;
-        overflow-x: hidden;
-        line-height: 1.6;
-      }
-
-      /* Navbar Styles */
-      .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: var(--transition);
-        backdrop-filter: blur(10px);
-        background-color: rgba(255, 255, 255, 0.9);
-      }
-
-      .navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        height: 80px;
-        transition: var(--transition);
-      }
-
-      .navbar-logo {
-        display: flex;
-        align-items: center;
-        position: relative;
-      }
-
-      .navbar-logo img {
-        height: 50px;
-        width: auto;
-        margin-right: 15px;
-        transition: var(--transition);
-      }
-
-      .navbar-logo h2 {
-        color: var(--primary-color);
-        font-size: 1.6rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        padding-top: 70px;
       }
 
       .navbar-links {
-        display: flex;
-        gap: 25px;
-      }
-
-      .navbar-link {
-        color: var(--dark-gray);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 10px 15px;
-        border-radius: 30px;
-        transition: var(--transition);
-        position: relative;
-      }
-
-      .navbar-link:hover {
-        color: var(--primary-dark);
-        transform: translateY(-2px);
-      }
-
-      .navbar-link.active {
-        color: var(--primary-dark);
-        background: rgba(139, 107, 74, 0.1);
-      }
-
-      .navbar-toggle {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        z-index: 1001;
-      }
-
-      .navbar-toggle span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--primary-color);
-        border-radius: 3px;
-        transition: var(--transition);
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        width: 100%;
-      }
-
-      header {
-        text-align: center;
-        margin-bottom: 60px;
-        padding-top: 20px;
-        position: relative;
-        overflow: hidden;
-      }
-
-      header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(
-          circle,
-          var(--primary-light) 0%,
-          rgba(255, 255, 255, 0) 70%
-        );
-        opacity: 0.3;
-        z-index: -1;
-        animation: pulse 8s infinite alternate;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: translateX(-50%) scale(1);
-        }
-        100% {
-          transform: translateX(-50%) scale(1.2);
-        }
-      }
-
-      header h1 {
-        color: var(--primary-dark);
-        font-size: 3rem;
-        margin-bottom: 15px;
-        font-weight: 700;
-        position: relative;
-        display: inline-block;
-      }
-
-      header h1::after {
-        content: "";
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--gradient);
-        border-radius: 2px;
-      }
-
-      header p {
-        color: var(--dark-gray);
-        font-size: 1.2rem;
-        max-width: 700px;
-        margin: 0 auto;
-        opacity: 0.8;
-      }
-
-      .filter-bar {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .filter-btn {
-        background-color: var(--white);
-        color: var(--primary-dark);
-        border: 2px solid var(--primary-color);
-        padding: 10px 25px;
-        border-radius: 30px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .filter-btn::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: var(--gradient);
-        z-index: -1;
-        transition: var(--transition);
-      }
-
-      .filter-btn:hover {
-        color: var(--white);
-        border-color: transparent;
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.2);
-      }
-
-      .filter-btn:hover::before {
-        width: 100%;
-      }
-
-      .filter-btn.active {
-        background: var(--gradient);
-        color: var(--white);
-        border-color: transparent;
-        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.3);
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 30px;
-        justify-content: center;
-      }
-
-      .gallery-item {
-        background-color: var(--white);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.6s forwards;
-        position: relative;
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .gallery-item:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .gallery-item::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--gradient);
-        opacity: 0;
-        transition: var(--transition);
-        z-index: 1;
-      }
-
-      .gallery-item:hover::before {
-        opacity: 0.1;
-      }
-
-      .gallery-item img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-        transition: var(--transition);
-      }
-
-      .gallery-item:hover img {
-        transform: scale(1.05);
-      }
-
-      .gallery-item video {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        display: block;
-        background-color: #000;
-      }
-
-      .gallery-item-content {
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-grow: 1;
-        position: relative;
-        z-index: 2;
-        background: var(--white);
-      }
-
-      .gallery-item-content h3 {
-        font-size: 1.3rem;
-        color: var(--dark-gray);
-        margin-bottom: 15px;
-        text-align: center;
-        font-weight: 600;
-      }
-
-      .item-actions {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: auto;
-      }
-
-      .view-btn {
-        background: var(--gradient);
-        color: var(--white);
-        border: none;
-        padding: 10px 20px;
-        border-radius: 30px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: var(--transition);
-        flex-grow: 1;
-        margin-right: 10px;
-        box-shadow: 0 5px 15px rgba(139, 107, 74, 0.3);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .view-btn::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateX(-100%) skewX(-15deg);
-        transition: var(--transition);
-      }
-
-      .view-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(139, 107, 74, 0.4);
-      }
-
-      .view-btn:hover::after {
-        transform: translateX(100%) skewX(-15deg);
-      }
-
-      .favorite-btn {
-        background: var(--white);
-        border: 2px solid #eee;
-        color: #999;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: var(--transition);
-        padding: 8px;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .favorite-btn:hover {
-        color: var(--primary-dark);
-        border-color: var(--primary-light);
-        transform: scale(1.1);
-      }
-
-      .favorite-btn.active {
-        color: var(--primary-dark);
-        border-color: var(--primary-light);
-        background: rgba(139, 107, 74, 0.1);
-      }
-
-      .lightbox {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.95);
-        display: flex;
+        height: 100vh;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 1010;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.4s ease, visibility 0.4s ease;
+        background-color: var(--white);
+        padding: 100px 30px 30px;
+        gap: 25px;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+        z-index: 999;
       }
 
-      .lightbox.active {
-        opacity: 1;
-        visibility: visible;
+      .navbar-links.active {
+        transform: translateX(0);
       }
 
-      .lightbox-content {
-        max-width: 90%;
-        max-height: 80%;
-        transform: scale(0.9);
-        transition: transform 0.4s ease;
+      .navbar-toggle {
+        display: flex;
       }
 
-      .lightbox.active .lightbox-content {
-        transform: scale(1);
+      .navbar-link {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+        text-align: center;
+      }
+
+      .navbar-link.active {
+        background: rgba(139, 107, 74, 0.1);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .filter-bar {
+        gap: 10px;
+      }
+
+      .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+      }
+
+      .gallery-item img,
+      .gallery-item video {
+        height: 200px;
       }
 
       .lightbox-content img,
       .lightbox-content video {
-        max-width: 100%;
-        max-height: 75vh;
-        display: block;
-        margin: 0 auto;
-        border-radius: 8px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-      }
-
-      .lightbox-close {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        font-size: 30px;
-        color: var(--white);
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1020;
-        opacity: 0.7;
-        transition: var(--transition);
-      }
-
-      .lightbox-close:hover {
-        opacity: 1;
-        transform: rotate(90deg);
-      }
-
-      .lightbox-caption {
-        color: var(--white);
-        text-align: center;
-        margin-top: 25px;
-        padding: 0 20px;
-        font-size: 1.3rem;
-        max-width: 800px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.4s ease 0.2s;
-      }
-
-      .lightbox.active .lightbox-caption {
-        opacity: 1;
-        transform: translateY(0);
+        max-height: 60vh;
       }
 
       .lightbox-product-container {
-        display: flex;
-        flex-direction: column;
-        max-width: 800px;
-        background: var(--white);
-        border-radius: 12px;
-        overflow: hidden;
-      }
-
-      .lightbox-product-container img {
-        width: 100%;
-        max-height: 60vh;
-        object-fit: contain;
+        max-width: 90vw;
       }
 
       .lightbox-description {
-        padding: 25px;
-        color: var(--dark-gray);
-        font-size: 1.1rem;
-        line-height: 1.6;
-        background: var(--white);
-        text-align: center;
+        padding: 15px;
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar-logo img {
+        height: 40px;
       }
 
-      .pagination {
-        display: flex;
-        justify-content: center;
-        margin-top: 60px;
-        margin-bottom: 60px;
-        flex-wrap: wrap;
-        gap: 8px;
+      .navbar-logo h2 {
+        font-size: 1.3rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .gallery-item-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .view-btn {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 0.95rem;
+      }
+
+      .gallery-item img,
+      .gallery-item video {
+        height: 180px;
       }
 
       .page-btn {
-        background-color: var(--white);
-        border: 1px solid #ddd;
-        color: var(--dark-gray);
-        margin: 0 5px;
-        width: 45px;
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: var(--transition);
-        font-weight: 600;
+        width: 40px;
+        height: 40px;
+        margin: 0 3px;
       }
+    }
+  </style>
+</head>
 
-      .page-btn:hover {
-        background: var(--gradient);
-        color: var(--white);
-        border-color: transparent;
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.2);
-      }
-
-      .page-btn.active {
-        background: var(--gradient);
-        color: var(--white);
-        border-color: transparent;
-        transform: scale(1.1);
-        box-shadow: 0 10px 20px rgba(139, 107, 74, 0.3);
-      }
-
-      /* Floating animation for featured item */
-      .featured-item {
-        animation: float 6s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-
-      /* Mobile menu styles */
-      @media (max-width: 768px) {
-        body {
-          padding-top: 70px;
-        }
-
-        .navbar-links {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh;
-          flex-direction: column;
-          background-color: var(--white);
-          padding: 100px 30px 30px;
-          gap: 25px;
-          transform: translateX(-100%);
-          transition: transform 0.5s ease;
-          z-index: 999;
-        }
-
-        .navbar-links.active {
-          transform: translateX(0);
-        }
-
-        .navbar-toggle {
-          display: flex;
-        }
-
-        .navbar-link {
-          font-size: 1.2rem;
-          padding: 12px 20px;
-          text-align: center;
-        }
-
-        .navbar-link.active {
-          background: rgba(139, 107, 74, 0.1);
-        }
-
-        .gallery-grid {
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 20px;
-        }
-
-        header h1 {
-          font-size: 2.2rem;
-        }
-
-        header p {
-          font-size: 1rem;
-        }
-
-        .filter-bar {
-          gap: 10px;
-        }
-
-        .filter-btn {
-          padding: 8px 18px;
-          font-size: 0.9rem;
-        }
-
-        .gallery-item img,
-        .gallery-item video {
-          height: 200px;
-        }
-
-        .lightbox-content img,
-        .lightbox-content video {
-          max-height: 60vh;
-        }
-
-        .lightbox-product-container {
-          max-width: 90vw;
-        }
-
-        .lightbox-description {
-          padding: 15px;
-          font-size: 1rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .navbar-logo img {
-          height: 40px;
-        }
-
-        .navbar-logo h2 {
-          font-size: 1.3rem;
-        }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-          gap: 15px;
-        }
-
-        .gallery-item-content h3 {
-          font-size: 1.1rem;
-        }
-
-        .view-btn {
-          padding: 8px 15px;
-          font-size: 0.85rem;
-        }
-
-        header h1 {
-          font-size: 1.8rem;
-        }
-
-        header p {
-          font-size: 0.95rem;
-        }
-
-        .gallery-item img,
-        .gallery-item video {
-          height: 180px;
-        }
-
-        .page-btn {
-          width: 40px;
-          height: 40px;
-          margin: 0 3px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="navbar-logo">
-          <img
-            src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png"
-            alt="RG Machinery Logo"
-          />
-          <h2>RG PACKAGING</h2>
-        </div>
-        <div class="navbar-links">
-          <a href="index.html" class="navbar-link">Home</a>
-          <a href="gallery.html" class="navbar-link active">Gallery</a>
-          <a href="contact.html" class="navbar-link">Contact</a>
-        </div>
-        <div class="navbar-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" alt="RG Machinery Logo" />
+        <h2>RG PACKAGING</h2>
       </div>
-    </nav>
-
-    <div class="container">
-      <header>
-        <h1>Our Machinery Gallery</h1>
-        <p>
-          Discover our premium collection of industrial packaging solutions
-          designed for efficiency and reliability
-        </p>
-      </header>
-
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Items</button>
-        <button class="filter-btn" data-filter="product">Machinery</button>
-        <button class="filter-btn" data-filter="video">Videos</button>
+      <div class="navbar-links">
+        <a href="index.html" class="navbar-link">Home</a>
+        <a href="gallery.html" class="navbar-link active">Gallery</a>
+        <a href="contact.html" class="navbar-link">Contact</a>
       </div>
-
-      <div class="gallery-grid">
-        <!-- Products -->
-        <div class="gallery-item featured-item" data-category="product">
-          <img
-            src="assets/images/about/Auger.jpeg"
-            alt="Industrial Auger"
-            loading="lazy"
-          />
-          <div class="gallery-item-content">
-            <h3>Industrial Auger</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-eye"></i> View Details
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="product">
-          <img
-            src="assets/images/about/multiheadvffs.jpeg"
-            alt="Multihead Machine"
-            loading="lazy"
-          />
-          <div class="gallery-item-content">
-            <h3>Multihead Machine</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-eye"></i> View Details
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="product">
-          <img
-            src="assets/images/about/Shrink.jpeg"
-            alt="Shrink Wrap Machine"
-            loading="lazy"
-          />
-          <div class="gallery-item-content">
-            <h3>Shrink Wrap Machine</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-eye"></i> View Details
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="product">
-          <img
-            src="assets/images/about/Vacuum.jpeg"
-            alt="Vacuum Packaging Machine"
-            loading="lazy"
-          />
-          <div class="gallery-item-content">
-            <h3>Vacuum Packaging Machine</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-eye"></i> View Details
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="product">
-          <img
-            src="assets/images/about/semiautomatic.jpeg"
-            alt="Pouch Filling Machine"
-            loading="lazy"
-          />
-          <div class="gallery-item-content">
-            <h3>Pouch Filling Machine</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-eye"></i> View Details
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="video">
-          <video controls poster="assets/images/about/image.png">
-            <source
-              src="assets/images/about/modernpackaging.mp4"
-              type="video/mp4"
-            />
-            <source
-              src="assets/videos/modernpackaging.webm"
-              type="video/webm"
-            />
-            Your browser does not support the video tag.
-          </video>
-          <div class="gallery-item-content">
-            <h3>Modern Packaging</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-expand"></i> Enlarge
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="video">
-          <video controls poster="assets/images/about/image2.png">
-            <source
-              src="assets/images/about/vacuumpackagin.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-          <div class="gallery-item-content">
-            <h3>Vacuum Packaging</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-expand"></i> Enlarge
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="gallery-item" data-category="video">
-          <video controls poster="assets/images/about/image3.png">
-            <source src="assets/images/about/nitrogen.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div class="gallery-item-content">
-            <h3>Nitrogen Flush Packaging</h3>
-            <div class="item-actions">
-              <button class="view-btn">
-                <i class="fas fa-expand"></i> Enlarge
-              </button>
-              <button class="favorite-btn">♡</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="pagination">
-        <button class="page-btn active">1</button>
-        <button class="page-btn">2</button>
-        <button class="page-btn">3</button>
-        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+      <div class="navbar-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>Our Machinery Gallery</h1>
+      <p>
+        Discover our premium collection of industrial packaging solutions at RG packaging designed for efficiency and
+        reliability
+      </p>
+    </header>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Items</button>
+      <button class="filter-btn" data-filter="product">Machinery</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Products -->
+      <div class="gallery-item featured-item" data-category="product">
+        <img src="assets/images/about/Auger.jpeg" alt="Industrial Auger" loading="lazy" />
+        <div class="gallery-item-content">
+          <h3>Industrial Auger</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-eye"></i> View Details
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="product">
+        <img src="assets/images/about/multiheadvffs.jpeg" alt="Multihead Machine" loading="lazy" />
+        <div class="gallery-item-content">
+          <h3>Multihead Machine</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-eye"></i> View Details
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="product">
+        <img src="assets/images/about/Shrink.jpeg" alt="Shrink Wrap Machine" loading="lazy" />
+        <div class="gallery-item-content">
+          <h3>Shrink Wrap Machine</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-eye"></i> View Details
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="product">
+        <img src="assets/images/about/Vacuum.jpeg" alt="Vacuum Packaging Machine" loading="lazy" />
+        <div class="gallery-item-content">
+          <h3>Vacuum Packaging Machine</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-eye"></i> View Details
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="product">
+        <img src="assets/images/about/semiautomatic.jpeg" alt="Pouch Filling Machine" loading="lazy" />
+        <div class="gallery-item-content">
+          <h3>Pouch Filling Machine</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-eye"></i> View Details
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="video">
+        <video controls poster="assets/images/about/image.png">
+          <source src="assets/images/about/modernpackaging.mp4" type="video/mp4" />
+          <source src="assets/videos/modernpackaging.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="gallery-item-content">
+          <h3>Modern Packaging</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-expand"></i> Enlarge
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="video">
+        <video controls poster="assets/images/about/image2.png">
+          <source src="assets/images/about/vacuumpackagin.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="gallery-item-content">
+          <h3>Vacuum Packaging</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-expand"></i> Enlarge
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="video">
+        <video controls poster="assets/images/about/image3.png">
+          <source src="assets/images/about/nitrogen.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="gallery-item-content">
+          <h3>Nitrogen Flush Packaging</h3>
+          <div class="item-actions">
+            <button class="view-btn">
+              <i class="fas fa-expand"></i> Enlarge
+            </button>
+            <button class="favorite-btn">♡</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <div class="lightbox">
       <button class="lightbox-close"><i class="fas fa-times"></i></button>
@@ -1176,5 +1137,6 @@
         });
       });
     </script>
-  </body>
+</body>
+
 </html>
