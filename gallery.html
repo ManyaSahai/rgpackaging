@@ -65,12 +65,13 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: var(--white);
+      background: linear-gradient(to right, #6B3E26, #7E5539, #9C6644, #7E5539, #6B3E26);
       box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
       z-index: 1000;
       transition: var(--transition);
       backdrop-filter: blur(10px);
       background-color: rgba(255, 255, 255, 0.9);
+      height: 90px;
     }
 
     .navbar-container {
@@ -114,7 +115,7 @@
     }
 
     .navbar-link {
-      color: var(--dark-gray);
+      color: white;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
@@ -125,12 +126,12 @@
     }
 
     .navbar-link:hover {
-      color: var(--primary-dark);
+      color: white;
       transform: translateY(-2px);
     }
 
     .navbar-link.active {
-      color: var(--primary-dark);
+      color: white;
       background: rgba(139, 107, 74, 0.1);
     }
 
@@ -735,12 +736,17 @@
     <div class="navbar-container">
       <div class="navbar-logo">
         <img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" alt="RG Machinery Logo" />
-        <h2>RG PACKAGING</h2>
+
       </div>
       <div class="navbar-links">
-        <a href="index.html" class="navbar-link">Home</a>
+        <a href="index.html" class="navbar-link active">Home</a>
+        <a href="gallery.html" class="navbar-link active">About Us</a>
+        <a href="gallery.html" class="navbar-link active">Services</a>
+        <a href="gallery.html" class="navbar-link active">Products</a>
         <a href="gallery.html" class="navbar-link active">Gallery</a>
-        <a href="contact.html" class="navbar-link">Contact</a>
+        <a href="contact.html" class="navbar-link active">Contact</a>
+
+
       </div>
       <div class="navbar-toggle">
         <span></span>
@@ -760,7 +766,7 @@
     </header>
 
     <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All Items</button>
+
       <button class="filter-btn" data-filter="product">Machinery</button>
       <button class="filter-btn" data-filter="video">Videos</button>
     </div>
@@ -889,6 +895,8 @@
       <div class="lightbox-content"></div>
       <div class="lightbox-caption"></div>
     </div>
+    <br>
+
     <footer class="rg-footer" id="rg-footer" style="background-color: #5D4037;">
       <div class="rg-footer-pattern-layer">
         <div class="rg-pattern-1" style="background-image: url(assets/images/shape/shape-12.png);"></div>
