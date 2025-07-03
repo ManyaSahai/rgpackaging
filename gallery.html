@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Gallery | RG Machinery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --primary-color: #8b6b4a;
@@ -25,7 +27,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Montserrat", "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     @font-face {
@@ -160,7 +162,6 @@
       padding: 0 20px;
       width: 100%;
       box-sizing: border-box;
-      /* This ensures padding is included in width */
     }
 
     header {
@@ -728,34 +729,174 @@
         margin: 0 3px;
       }
     }
+
+    .call-container {
+      text-align: left;
+    }
+
+    .rg-call-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 0;
+    }
+
+    /* Updated gallery grid alignment */
+    @media (min-width: 992px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo">
-        <img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" alt="RG Machinery Logo" />
+  <!DOCTYPE html>
+  <html lang="en">
 
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RG Machinery Navbar</title>
+    <style>
+      :root {
+        --primary-color: #8B6B4A;
+        --gradient: linear-gradient(135deg, #8B6B4A, #A0845C);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        padding-top: 90px;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to right, #6B3E26, #7E5539, #9C6644, #7E5539, #6B3E26);
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
+        height: 90px;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 50px;
+        height: 100px;
+        transition: var(--transition);
+      }
+
+      .navbar-logo {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .navbar-logo img {
+        height: 50px;
+        width: auto;
+        margin-right: 15px;
+        transition: var(--transition);
+      }
+
+      .navbar-logo h2 {
+        color: var(--primary-color);
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .navbar-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .navbar-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 100;
+        font-size: 1.1rem;
+        padding: 10px 15px;
+        border-radius: 30px;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .navbar-link:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .navbar-link.active {
+        color: white;
+        background: rgba(139, 107, 74, 0.1);
+      }
+
+      .navbar-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .navbar-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 3px;
+        transition: var(--transition);
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="navbar-logo">
+          <img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" alt="RG Machinery Logo" />
+        </div>
+        <div class="navbar-links">
+          <a href="index.html" class="navbar-link active">Home</a>
+          <a href="index.html#about" class="navbar-link active">About Us</a>
+          <a href="index.html#service" class="navbar-link active">Services</a>
+          <a href="index.html#product" class="navbar-link active">Products</a>
+          <a href="gallery.html" class="navbar-link active">Gallery</a>
+          <a href="contact.html" class="navbar-link active">Contact</a>
+        </div>
+        <div class="navbar-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <div class="navbar-links">
-        <a href="index.html" class="navbar-link active">Home</a>
-        <a href="gallery.html" class="navbar-link active">About Us</a>
-        <a href="gallery.html" class="navbar-link active">Services</a>
-        <a href="gallery.html" class="navbar-link active">Products</a>
-        <a href="gallery.html" class="navbar-link active">Gallery</a>
-        <a href="contact.html" class="navbar-link active">Contact</a>
+    </nav>
+  </body>
 
-
-      </div>
-      <div class="navbar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
-
+  </html>
   <div class="container">
     <header>
       <h1>Our Machinery Gallery</h1>
@@ -766,8 +907,7 @@
     </header>
 
     <div class="filter-bar">
-
-      <button class="filter-btn" data-filter="product">Machinery</button>
+      <button class="filter-btn active" data-filter="product">Machinery</button>
       <button class="filter-btn" data-filter="video">Videos</button>
     </div>
 
@@ -838,7 +978,8 @@
         </div>
       </div>
 
-      <div class="gallery-item" data-category="video">
+      <!-- Videos -->
+      <div class="gallery-item" data-category="video" style="display: none;">
         <video controls poster="assets/images/about/image.png">
           <source src="assets/images/about/modernpackaging.mp4" type="video/mp4" />
           <source src="assets/videos/modernpackaging.webm" type="video/webm" />
@@ -855,7 +996,7 @@
         </div>
       </div>
 
-      <div class="gallery-item" data-category="video">
+      <div class="gallery-item" data-category="video" style="display: none;">
         <video controls poster="assets/images/about/image2.png">
           <source src="assets/images/about/vacuumpackagin.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -871,7 +1012,7 @@
         </div>
       </div>
 
-      <div class="gallery-item" data-category="video">
+      <div class="gallery-item" data-category="video" style="display: none;">
         <video controls poster="assets/images/about/image3.png">
           <source src="assets/images/about/nitrogen.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -888,233 +1029,668 @@
       </div>
     </div>
 
-
-
     <div class="lightbox">
       <button class="lightbox-close"><i class="fas fa-times"></i></button>
       <div class="lightbox-content"></div>
       <div class="lightbox-caption"></div>
     </div>
     <br>
+    <br>
+    <br>
 
-    <footer class="rg-footer" id="rg-footer" style="background-color: #5D4037;">
-      <div class="rg-footer-pattern-layer">
-        <div class="rg-pattern-1" style="background-image: url(assets/images/shape/shape-12.png);"></div>
-        <div class="rg-pattern-2" style="background-image: url(assets/images/shape/shape-13.png);"></div>
-        <div class="rg-pattern-3" style="background-image: url(assets/images/shape/shape-14.png);"></div>
-      </div>
+    <!DOCTYPE html>
+    <html lang="en">
 
-      <div class="rg-footer-container">
-        <div class="rg-footer-top">
-          <div class="rg-line-shape" style="background-image: url(assets/images/shape/shape-11.png);"></div>
-          <div class="rg-footer-call-text">
-            <h2 class="rg-call-heading">Give us a Call Today!</h2>
-          </div>
-          <div class="rg-support-box">
-            <a href="tel:+91-98920-48932" class="rg-call-button">
-              <img src="assets/images/icon/call.svg" alt="Call" class="rg-call-icon">
-              +9198920-48932
-            </a>
-          </div>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>RG Packaging Footer</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+        }
+
+        .footer-main {
+          background-color: #5D4037;
+          color: white;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .footer-pattern-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+        }
+
+        .pattern-element-1,
+        .pattern-element-2,
+        .pattern-element-3 {
+          position: absolute;
+          background-size: contain;
+          background-repeat: no-repeat;
+          opacity: 0.1;
+        }
+
+        .pattern-element-1 {
+          top: 10%;
+          left: 10%;
+          width: 100px;
+          height: 100px;
+        }
+
+        .pattern-element-2 {
+          top: 20%;
+          right: 10%;
+          width: 80px;
+          height: 80px;
+        }
+
+        .pattern-element-3 {
+          bottom: 10%;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 120px;
+          height: 120px;
+        }
+
+        .footer-content-wrapper {
+          position: relative;
+          z-index: 1;
+        }
+
+        .footer-header-section {
+          padding: 40px 0;
+          text-align: center;
+          position: relative;
+        }
+
+        .decorative-line {
+          width: 100%;
+          height: 40px;
+          background-size: repeat-x;
+          margin-bottom: 20px;
+          opacity: 0.3;
+        }
+
+        .call-to-action-text {
+          display: inline-block;
+          margin-right: 50px;
+        }
+
+        .main-call-heading {
+          font-size: 2.2rem;
+          font-weight: 600;
+          color: #D2B48C;
+          margin-bottom: 0;
+        }
+
+        .contact-support-section {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        .phone-call-wrapper {
+          background: white;
+          border-radius: 50px;
+          padding: 15px 25px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .primary-call-button {
+          display: flex;
+          align-items: center;
+          color: #5D4037;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+
+        .call-button-icon {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+        }
+
+        .footer-widgets-section {
+          padding: 50px 0;
+        }
+
+        .footer-content-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          gap: 60px;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        .footer-column {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .footer-widget-container {
+          height: 100%;
+        }
+
+        .brand-logo-widget {
+          text-align: left;
+        }
+
+        .footer-brand-logo {
+          margin-bottom: 30px;
+        }
+
+        .footer-brand-logo a {
+          display: inline-block;
+        }
+
+        .brand-logo-image {
+          max-width: 120px;
+          height: auto;
+          background: white;
+          padding: 15px;
+          border-radius: 10px;
+        }
+
+        .business-hours-section {
+          margin-top: 20px;
+        }
+
+        .business-hours-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #D2B48C;
+        }
+
+        .operating-hours-list {
+          list-style: none;
+        }
+
+        .hours-list-item {
+          margin-bottom: 8px;
+          font-size: 0.95rem;
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-info-widget {
+          height: 100%;
+        }
+
+        .widget-header {
+          margin-bottom: 25px;
+        }
+
+        .contact-info-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #D2B48C;
+          margin-bottom: 0;
+        }
+
+        .widget-body {
+          flex: 1;
+        }
+
+        .contact-details-list {
+          list-style: none;
+        }
+
+        .contact-detail-item {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
+
+        .contact-detail-icon {
+          width: 20px;
+          height: 20px;
+          margin-right: 15px;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .contact-detail-text {
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.5;
+        }
+
+        .contact-detail-text a {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+
+        .contact-detail-text a:hover {
+          color: #D2B48C;
+        }
+
+        .navigation-links-widget {
+          height: 100%;
+        }
+
+        .navigation-links-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #D2B48C;
+          margin-bottom: 0;
+        }
+
+        .quick-navigation-list {
+          list-style: none;
+        }
+
+        .navigation-list-item {
+          margin-bottom: 12px;
+        }
+
+        .navigation-list-item a {
+          color: rgba(255, 255, 255, 0.9);
+          text-decoration: none;
+          transition: all 0.3s ease;
+          display: inline-block;
+        }
+
+        .navigation-list-item a:hover {
+          color: #D2B48C;
+          transform: translateX(5px);
+        }
+
+        .newsletter-subscription-widget {
+          height: 100%;
+        }
+
+        .newsletter-subscription-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #D2B48C;
+          margin-bottom: 0;
+        }
+
+        .email-subscription-form {
+          margin-top: 20px;
+        }
+
+        .subscription-form-container {
+          position: relative;
+        }
+
+        .email-input-group {
+          position: relative;
+        }
+
+        .subscription-email-input {
+          width: 100%;
+          padding: 15px 50px 15px 20px;
+          border: none;
+          border-radius: 50px;
+          background: white;
+          color: #5D4037;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+        }
+
+        .subscription-email-input:focus {
+          outline: none;
+          box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .subscription-email-input::placeholder {
+          color: #999;
+        }
+
+        .email-submit-button {
+          position: absolute;
+          right: 8px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: #D2B48C;
+          border: none;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .email-submit-button:hover {
+          background: #B8941F;
+        }
+
+        .submit-button-icon {
+          width: 16px;
+          height: 16px;
+        }
+
+        .footer-bottom-section {
+          background: rgba(0, 0, 0, 0.2);
+          padding: 20px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+
+        .copyright-section {
+          flex: 1;
+          min-width: 200px;
+        }
+
+        .copyright-content {
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .copyright-brand-link {
+          color: #D2B48C;
+          text-decoration: none;
+          font-weight: 600;
+        }
+
+        .copyright-year-text {
+          margin-left: 10px;
+        }
+
+        .social-media-links {
+          display: flex;
+          list-style: none;
+          gap: 10px;
+        }
+
+        .social-media-item {
+          display: flex;
+        }
+
+        .social-media-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          background: white;
+          border-radius: 50%;
+          color: #5D4037;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+
+        .social-media-link:hover {
+          background: #D2B48C;
+          color: white;
+        }
+
+        .social-media-icon {
+          width: 20px;
+          height: 20px;
+          fill: currentColor;
+        }
+
+        .indiamart-brand-icon {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
+        }
+
+        .footer-navigation-menu {
+          display: flex;
+          list-style: none;
+          gap: 20px;
+        }
+
+        .footer-navigation-item {
+          display: flex;
+        }
+
+        .footer-navigation-link {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          font-size: 0.9rem;
+          transition: color 0.3s ease;
+        }
+
+        .footer-navigation-link:hover {
+          color: #D2B48C;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .footer-content-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+          }
+
+          .main-call-heading {
+            font-size: 1.8rem;
+          }
+
+          .call-to-action-text {
+            display: block;
+            margin-right: 0;
+            margin-bottom: 20px;
+          }
+
+          .contact-support-section {
+            display: block;
+          }
+
+          .footer-bottom-content {
+            flex-direction: column;
+            text-align: center;
+          }
+
+          .social-media-links {
+            order: 2;
+          }
+
+          .footer-navigation-menu {
+            order: 3;
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer-content-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+
+          .main-call-heading {
+            font-size: 1.6rem;
+          }
+
+          .primary-call-button {
+            font-size: 1rem;
+          }
+        }
+      </style>
+    </head>
+
+    <body>
+      <footer class="footer-main" id="footer-main">
+        <div class="footer-pattern-overlay">
+          <div class="pattern-element-1" style="background-image: url(assets/images/shape/shape-12.png);"></div>
+          <div class="pattern-element-2" style="background-image: url(assets/images/shape/shape-13.png);"></div>
+          <div class="pattern-element-3" style="background-image: url(assets/images/shape/shape-14.png);"></div>
         </div>
 
-        <div class="rg-footer-widgets">
-          <div class="rg-footer-row">
-            <div class="rg-footer-col rg-footer-col-logo">
-              <div class="rg-footer-widget rg-logo-widget">
-                <figure class="rg-footer-logo">
-                  <a href='index-2.html'>
-                    <img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" class="rg-footer-logo-img"
-                      alt="RG Packaging">
-                  </a>
-                </figure>
-                <div class="rg-schedule-box">
-                  <h6 class="rg-hours-heading">Open Hours:</h6>
-                  <ul class="rg-hours-list">
-                    <li class="rg-hours-item">Mon - Sat: 9:30 AM - 6:00 PM.</li>
-                    <li class="rg-hours-item">Sunday: Closed</li>
-                  </ul>
-                </div>
+        <div class="footer-content-wrapper">
+          <div class="footer-header-section">
+            <div class="decorative-line" style="background-image: url(assets/images/shape/shape-11.png);"></div>
+            <div class="call-to-action-text">
+              <h2 class="main-call-heading">Give us a Call Today!</h2>
+            </div>
+            <div class="contact-support-section">
+              <div class="phone-call-wrapper">
+                <a href="tel:+91-98920-48932" class="primary-call-button">
+                  <img src="assets/images/icon/call.svg" alt="Call" class="call-button-icon">
+                  +91 98920-48932
+                </a>
               </div>
             </div>
+          </div>
 
-            <div class="rg-footer-col rg-footer-col-address">
-              <div class="rg-footer-widget rg-address-widget">
-                <div class="rg-widget-title">
-                  <h4 class="rg-address-heading">Address</h4>
-                </div>
-                <div class="rg-widget-content">
-                  <ul class="rg-address-list">
-                    <li class="rg-address-item">
-                      <img src="assets/images/icon/map.svg" class="rg-address-icon" alt="Address">
-                      <span>Raval Group, D 329, TTC Industrial Estate Turbhe, Navi Mumbai 400705</span>
-                    </li>
-                    <li class="rg-address-item">
-                      <img src="assets/images/icon/call.svg" class="rg-address-icon" alt="Phone">
-                      <a href="tel:+91-9892048932" class="rg-address-link">+91-98920-48932</a>
-                    </li>
-                    <li class="rg-address-item">
-                      <img src="assets/images/icon/email.png" class="rg-address-icon" alt="Email">
-                      <a href="mailto:ravalgroup@gmail.com" class="rg-address-link">ravalgroup@gmail.com</a>
-                    </li>
-                  </ul>
+          <div class="footer-widgets-section">
+            <div class="footer-content-grid">
+              <div class="footer-column footer-column-brand">
+                <div class="footer-widget-container brand-logo-widget">
+                  <figure class="footer-brand-logo">
+                    <a href='index-2.html'>
+                      <img src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png" class="brand-logo-image"
+                        alt="RG Packaging">
+                    </a>
+                  </figure>
+                  <div class="business-hours-section">
+                    <h6 class="business-hours-title">Open Hours:</h6>
+                    <ul class="operating-hours-list">
+                      <li class="hours-list-item">Mon - Sat: 9:30 AM - 6:00 PM.</li>
+                      <li class="hours-list-item">Sunday: Closed</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="rg-footer-col rg-footer-col-links">
-              <div class="rg-footer-widget rg-links-widget">
-                <div class="rg-widget-title">
-                  <h4 class="rg-links-heading">Quick Links</h4>
-                </div>
-                <div class="rg-widget-content">
-                  <ul class="rg-links-list">
-                    <li class="rg-link-item"><a href="#about" class="rg-nav-link">About Us</a></li>
-                    <li class="rg-link-item"><a href="#service" class="rg-nav-link">Services</a></li>
-                    <li class="rg-link-item"><a href="#product" class="rg-nav-link">Products</a></li>
-                    <li class="rg-link-item"><a href='contact.html' class="rg-nav-link">Contact Us</a></li>
-                  </ul>
+              <div class="footer-column footer-column-contact">
+                <div class="footer-widget-container contact-info-widget">
+                  <div class="widget-header">
+                    <h4 class="contact-info-title">Address</h4>
+                  </div>
+                  <div class="widget-body">
+                    <ul class="contact-details-list">
+                      <li class="contact-detail-item">
+                        <img src="assets/images/icon/map.svg" class="contact-detail-icon" alt="Address">
+                        <span class="contact-detail-text">Raval Group, D 329, TTC Industrial Estate Turbhe, Navi Mumbai
+                          400705</span>
+                      </li>
+                      <li class="contact-detail-item">
+                        <img src="assets/images/icon/call.svg" class="contact-detail-icon" alt="Phone">
+                        <a href="tel:+91-9892048932" class="contact-detail-text">Call Us: +91-98920-48932</a>
+                      </li>
+                      <li class="contact-detail-item">
+                        <img src="assets/images/icon/email.png" class="contact-detail-icon" alt="Email">
+                        <a href="mailto:ravalgroup@gmail.com" class="contact-detail-text">ravalgroup@gmail.com</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="rg-footer-col rg-footer-col-subscribe">
-              <div class="rg-footer-widget rg-subscribe-widget">
-                <div class="rg-widget-title">
-                  <h4 class="rg-subscribe-heading">Subscribe</h4>
+              <div class="footer-column footer-column-navigation">
+                <div class="footer-widget-container navigation-links-widget">
+                  <div class="widget-header">
+                    <h4 class="navigation-links-title">Quick Links</h4>
+                  </div>
+                  <div class="widget-body">
+                    <ul class="quick-navigation-list">
+                      <li class="navigation-list-item">
+                        <a href="index.html#about" class="navigation-link">About Us</a>
+                      </li>
+
+                      <li class="navigation-list-item"><a href="#service" class="navigation-link">Services</a></li>
+                      <li class="navigation-list-item"><a href="#product" class="navigation-link">Products</a></li>
+                      <li class="navigation-list-item"><a href='contact.html' class="navigation-link">Contact Us</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div class="rg-widget-content">
-                  <div class="rg-subscribe-form">
-                    <form action="#" method="post" class="rg-email-form">
-                      <div class="rg-form-group">
-                        <input type="email" name="email" placeholder="Your Email" required class="rg-email-input">
-                        <button type="submit" class="rg-submit-button">
-                          <img src="assets/images/icon/right-arrow.png" class="rg-submit-icon" alt="Submit">
-                        </button>
-                      </div>
-                    </form>
+              </div>
+
+              <div class="footer-column footer-column-newsletter">
+                <div class="footer-widget-container newsletter-subscription-widget">
+                  <div class="widget-header">
+                    <h4 class="newsletter-subscription-title">Subscribe</h4>
+                  </div>
+                  <div class="widget-body">
+                    <div class="email-subscription-form">
+                      <form action="#" method="post" class="subscription-form-container">
+                        <div class="email-input-group">
+                          <input type="email" name="email" placeholder="Your Email" required
+                            class="subscription-email-input">
+                          <button type="submit" class="email-submit-button">
+                            <img src="assets/images/icon/right-arrow.png" class="submit-button-icon" alt="Submit">
+                          </button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+        <div class="footer-bottom-section">
+          <div class="footer-bottom-content">
+            <div class="copyright-section">
+              <p class="copyright-content">
+                <a href='index-2.html' class='copyright-brand-link'>RG Packaging</a>
+                <span class="copyright-year-text">© 2025 All Right Reserved</span>
+              </p>
+            </div>
 
-      <style>
-        .rg-subscribe-widget {
-          width: 100%;
-        }
+            <ul class="social-media-links">
+              <li class="social-media-item">
+                <a target="_blank" href="https://www.instagram.com/rgpackhouse/" aria-label="Instagram"
+                  class="social-media-link social-instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="social-media-icon" viewBox="0 0 24 24">
+                    <path
+                      d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm9.25 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="social-media-item">
+                <a target="_blank" href="https://www.linkedin.com/in/meghana-raval-a1772a56/" aria-label="LinkedIn"
+                  class="social-media-link social-linkedin">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="social-media-icon" viewBox="0 0 24 24">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.041-1.854-3.041-1.854 0-2.137 1.445-2.137 2.937v5.673h-3.554V9h3.414v1.561h.049c.476-.898 1.637-1.847 3.368-1.847 3.6 0 4.265 2.368 4.265 5.451v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.555C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.277V1.723C24 .771 23.2 0 22.222 0z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="social-media-item">
+                <a target="_blank"
+                  href="https://www.indiamart.com/proddetail/private-label-customised-packing-2851314805462.html?srsltid=AfmBOop9GtQqQfWntbRw_4ms8wcjth8DWl1lJnPyGdDztSnsrqdVuIEO"
+                  aria-label="IndiaMART" class="social-media-link social-indiamart">
+                  <img src="assets/images/logo/indiamartlogo.png" alt="IndiaMART" class="indiamart-brand-icon">
+                </a>
+              </li>
+            </ul>
 
-        .rg-subscribe-form {
-          width: 100%;
-          max-width: 320px;
-        }
-
-        .rg-email-form {
-          display: flex;
-          width: 100%;
-          height: 44px;
-          border-radius: 30px;
-          overflow: hidden;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .rg-form-group {
-          display: flex;
-          width: 100%;
-          height: 100%;
-        }
-
-        .rg-email-input {
-          flex: 1;
-          background: #FFF8E1;
-          color: #5D4037;
-          border: none;
-          padding: 0 18px;
-          font-family: "Poppins", sans-serif;
-          font-size: 14px;
-          outline: none;
-        }
-
-        .rg-email-input::placeholder {
-          color: #9E9E9E;
-          opacity: 1;
-        }
-
-        .rg-submit-button {
-          width: 50px;
-          background: #FFF8E1;
-          border: none;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background 0.3s ease;
-        }
-
-        .rg-submit-button:hover {
-          background: #e8dcc8;
-        }
-
-        .rg-submit-icon {
-          width: 16px;
-          height: 16px;
-        }
-
-        @media (max-width: 768px) {
-          .rg-subscribe-form {
-            max-width: 100%;
-          }
-        }
-      </style>
-
-      <div class="rg-footer-bottom">
-        <div class="rg-footer-bottom-container">
-          <div class="rg-copyright">
-            <p class="rg-copyright-text">
-              <a href='index-2.html' class='rg-copyright-link'>RG Packaging</a>
-              <span class="rg-copyright-year">&copy; 2025 All Right Reserved</span>
-            </p>
+            <ul class="footer-navigation-menu">
+              <li class="footer-navigation-item"><a href='index.html' class="footer-navigation-link">Terms of
+                  Service</a></li>
+              <li class="footer-navigation-item"><a href='index.html' class="footer-navigation-link">Privacy Policy</a>
+              </li>
+            </ul>
           </div>
-
-          <ul class="rg-social-links">
-            <li class="rg-social-item">
-              <a target="_blank" href="https://www.instagram.com/rgpackhouse/" aria-label="Instagram"
-                class="rg-social-link rg-instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" class="rg-social-icon" viewBox="0 0 24 24">
-                  <path
-                    d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm9.25 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
-                </svg>
-              </a>
-            </li>
-            <li class="rg-social-item">
-              <a target="_blank" href="https://www.linkedin.com/in/meghana-raval-a1772a56/" aria-label="LinkedIn"
-                class="rg-social-link rg-linkedin">
-                <svg xmlns="http://www.w3.org/2000/svg" class="rg-social-icon" viewBox="0 0 24 24">
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.041-1.854-3.041-1.854 0-2.137 1.445-2.137 2.937v5.673h-3.554V9h3.414v1.561h.049c.476-.898 1.637-1.847 3.368-1.847 3.6 0 4.265 2.368 4.265 5.451v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.555C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.277V1.723C24 .771 23.2 0 22.222 0z" />
-                </svg>
-              </a>
-            </li>
-            <li class="rg-social-item">
-              <a target="_blank"
-                href="https://www.indiamart.com/proddetail/private-label-customised-packing-2851314805462.html?srsltid=AfmBOop9GtQqQfWntbRw_4ms8wcjth8DWl1lJnPyGdDztSnsrqdVuIEO"
-                aria-label="IndiaMART" class="rg-social-link rg-indiamart">
-                <img src="assets/images/logo/indiamartlogo.png" alt="IndiaMART" class="rg-indiamart-icon">
-              </a>
-            </li>
-          </ul>
-
-          <ul class="rg-footer-nav">
-            <li class="rg-footer-nav-item"><a href='index.html' class="rg-footer-nav-link">Terms of Service</a></li>
-            <li class="rg-footer-nav-item"><a href='index.html' class="rg-footer-nav-link">Privacy Policy</a></li>
-          </ul>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </body>
 
+    </html>
     <style>
       /* Reset and base styles */
       .rg-footer,
@@ -1153,7 +1729,6 @@
       .rg-call-heading {
         color: beige;
         font-size: 1.5rem;
-        margin: 0;
       }
 
       .rg-call-button {
@@ -1187,19 +1762,6 @@
       .rg-footer-col {
         padding: 0 15px;
         margin-bottom: 30px;
-        flex: 1 0 100%;
-      }
-
-      @media (min-width: 768px) {
-        .rg-footer-col {
-          flex: 1 0 50%;
-        }
-      }
-
-      @media (min-width: 992px) {
-        .rg-footer-col {
-          flex: 1 0 25%;
-        }
       }
 
       /* Widget specific styles */
@@ -1449,7 +2011,7 @@
           }
         });
 
-        // Filter functionality
+        // Filter functionality - updated to show only one category at a time
         const filterButtons = document.querySelectorAll(".filter-btn");
         const galleryItems = document.querySelectorAll(".gallery-item");
 
@@ -1465,10 +2027,7 @@
 
             // Filter gallery items with animation
             galleryItems.forEach((item, index) => {
-              if (
-                filter === "all" ||
-                item.getAttribute("data-category") === filter
-              ) {
+              if (item.getAttribute("data-category") === filter) {
                 item.style.display = "flex";
                 setTimeout(() => {
                   item.style.opacity = "1";
@@ -1484,6 +2043,9 @@
             });
           });
         });
+
+        // Initialize with only machinery shown
+        document.querySelector('.filter-btn[data-filter="product"]').click();
 
         // Lightbox functionality
         const lightbox = document.querySelector(".lightbox");
@@ -1604,7 +2166,7 @@
         });
 
         // Make items appear with subtle animation on load
-        galleryItems.forEach((item, index) => {
+        document.querySelectorAll('.gallery-item[data-category="product"]').forEach((item, index) => {
           setTimeout(() => {
             item.style.opacity = "1";
             item.style.transform = "translateY(0)";
