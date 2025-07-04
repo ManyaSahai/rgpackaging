@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Gallery | RG Machinery</title>
+  <link rel="shortcut icon" type="image/png" href="assets/images/about/RG%20logo%20co%5b1%5d(1).png">
+  <link rel="shortcut icon" type="image/png" href="assets/images/about/RG%20logo%20co%5b1%5d(1).png">
+  <!-- Page Title -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
@@ -285,9 +288,11 @@
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 30px;
       justify-content: center;
+      margin-left: 40px;
     }
 
     .gallery-item {
+      width: 90%;
       background-color: var(--white);
       border-radius: 12px;
       overflow: hidden;
@@ -910,7 +915,6 @@
       <button class="filter-btn active" data-filter="product">Machinery</button>
       <button class="filter-btn" data-filter="video">Videos</button>
     </div>
-
     <div class="gallery-grid">
       <!-- Products -->
       <div class="gallery-item featured-item" data-category="product">
@@ -952,32 +956,40 @@
         </div>
       </div>
 
-      <div class="gallery-item" data-category="product">
-        <img src="assets/images/about/Vacuum.jpeg" alt="Vacuum Packaging Machine" loading="lazy" />
-        <div class="gallery-item-content">
-          <h3>Vacuum Packaging Machine</h3>
-          <div class="item-actions">
-            <button class="view-btn">
-              <i class="fas fa-eye"></i> View Details
-            </button>
-            <button class="favorite-btn">♡</button>
+      <!-- Last Two Cards - Centered Together -->
+      <div style="grid-column: 1/-1; display: flex; justify-content: center; gap: 55px; flex-wrap: wrap; width: 100%;">
+        <!-- Vacuum Machine - WIDTH INCREASED -->
+        <div class="gallery-item" data-category="product"
+          style="flex: 0 1 calc(59% - 15px); max-width: 380px; min-width: 280px;">
+          <img src="assets/images/about/Vacuum.jpeg" alt="Vacuum Packaging Machine" loading="lazy"
+            style="width: 100%; height: 220px; object-fit: cover;" />
+          <div class="gallery-item-content">
+            <h3>Vacuum Packaging Machine</h3>
+            <div class="item-actions">
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+              <button class="favorite-btn">♡</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pouch Machine - WIDTH INCREASED -->
+        <div class="gallery-item" data-category="product"
+          style="flex: 0 1 calc(59% - 15px); max-width: 380px; min-width: 280px;">
+          <img src="assets/images/about/semiautomatic.jpeg" alt="Pouch Filling Machine" loading="lazy"
+            style="width: 100%; height: 220px; object-fit: cover;" />
+          <div class="gallery-item-content">
+            <h3>Pouch Filling Machine</h3>
+            <div class="item-actions">
+              <button class="view-btn">
+                <i class="fas fa-eye"></i> View Details
+              </button>
+              <button class="favorite-btn">♡</button>
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="gallery-item" data-category="product">
-        <img src="assets/images/about/semiautomatic.jpeg" alt="Pouch Filling Machine" loading="lazy" />
-        <div class="gallery-item-content">
-          <h3>Pouch Filling Machine</h3>
-          <div class="item-actions">
-            <button class="view-btn">
-              <i class="fas fa-eye"></i> View Details
-            </button>
-            <button class="favorite-btn">♡</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Videos -->
       <div class="gallery-item" data-category="video" style="display: none;">
         <video controls poster="assets/images/about/image.png">
@@ -1143,8 +1155,9 @@
         .phone-call-wrapper {
           background: white;
           border-radius: 50px;
-          padding: 15px 25px;
+          padding: 1px 25px;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          margin-right: 150px;
         }
 
         .primary-call-button {
@@ -1538,20 +1551,34 @@
         </div>
 
         <div class="footer-content-wrapper">
-          <div class="footer-header-section">
-            <div class="decorative-line" style="background-image: url(assets/images/shape/shape-11.png);"></div>
-            <div class="call-to-action-text">
-              <h2 class="main-call-heading">Give us a Call Today!</h2>
+          <div class="footer-header-section"
+            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 20px 0;">
+            <div class="call-to-action-text call-heading-offset" style="flex: 1;">
+              <h2 class="call-heading-text">Give us a Call Today!</h2>
             </div>
-            <div class="contact-support-section">
+
+            <div class="contact-support-section" style="flex: 1; display: flex; justify-content: flex-end;">
               <div class="phone-call-wrapper">
-                <a href="tel:+91-98920-48932" class="primary-call-button">
-                  <img src="assets/images/icon/call.svg" alt="Call" class="call-button-icon">
+                <a href="tel:+91-98920-48932" class="primary-call-button"
+                  style="display: inline-flex; align-items: center; background-color: #FFF8E1; color: #5D4037; padding: 10px 20px; border-radius: 30px; text-decoration: none; font-weight: 600;">
+                  <img src="assets/images/icon/call.svg" alt="Call" class="call-button-icon"
+                    style="height: 20px; width: 20px; margin-right: 3px; filter: brightness(0);">
                   +91 98920-48932
                 </a>
               </div>
             </div>
           </div>
+          <STYLE>
+            .call-heading-text {
+              padding-left: 439px;
+              margin-left: 3px;
+              color: #FFF8E1;
+              font-size: 26px;
+              /* optional: adjust size if needed */
+              font-weight: 600;
+              /* optional: makes it bolder */
+            }
+          </STYLE>
 
           <div class="footer-widgets-section">
             <div class="footer-content-grid">
@@ -1579,21 +1606,31 @@
                     <h4 class="contact-info-title">Address</h4>
                   </div>
                   <div class="widget-body">
-                    <ul class="contact-details-list">
-                      <li class="contact-detail-item">
-                        <img src="assets/images/icon/map.svg" class="contact-detail-icon" alt="Address">
-                        <span class="contact-detail-text">Raval Group, D 329, TTC Industrial Estate Turbhe, Navi Mumbai
-                          400705</span>
+                    <ul class="info-list clearfix" style="list-style: none; padding: 0; margin: 0;">
+                      <li
+                        style="text-align: left; color: #FFF8E1; margin-bottom: 16px; display: flex; align-items: center;">
+                        <img src="assets/images/icon/map.svg"
+                          style="width: 1.5em; height: 1.5em; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
+                          alt="">
+                        Raval Group, D 329, TTC Industrial Estate Turbhe, Navi Mumbai 400705
                       </li>
-                      <li class="contact-detail-item">
-                        <img src="assets/images/icon/call.svg" class="contact-detail-icon" alt="Phone">
-                        <a href="tel:+91-9892048932" class="contact-detail-text">Call Us: +91-98920-48932</a>
+                      <li
+                        style="text-align: left; color: #FFF8E1; margin-bottom: 16px; display: flex; align-items: center;">
+                        <img src="assets/images/icon/call.svg"
+                          style="width: 1.5em; height: 1.5em; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
+                          alt="">
+                        Call Us: <a href="tel:+91-9892048932"
+                          style="color: #FFF8E1; text-decoration: none; margin-left: 4px;">+91-98920-48932</a>
                       </li>
-                      <li class="contact-detail-item">
-                        <img src="assets/images/icon/email.png" class="contact-detail-icon" alt="Email">
-                        <a href="mailto:ravalgroup@gmail.com" class="contact-detail-text">ravalgroup@gmail.com</a>
+                      <li style="text-align: left; color: #FFF8E1; display: flex; align-items: center;">
+                        <img src="assets/images/icon/email.png"
+                          style="width: 1.5em; height: 1.5em; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
+                          alt="">
+                        <a href="mailto:ravalgroup@gmail.com"
+                          style="color: #FFF8E1; text-decoration: none;">ravalgroup@gmail.com</a>
                       </li>
                     </ul>
+
                   </div>
                 </div>
               </div>
