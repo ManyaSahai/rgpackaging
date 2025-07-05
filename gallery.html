@@ -959,7 +959,7 @@
       <!-- Last Two Cards - Centered Together -->
       <div style="grid-column: 1/-1; display: flex; justify-content: center; gap: 55px; flex-wrap: wrap; width: 100%;">
         <!-- Vacuum Machine - WIDTH INCREASED -->
-        <div class="gallery-item" data-category="product"
+        <div class="gallery-itemm" data-category="product"
           style="flex: 0 1 calc(59% - 15px); max-width: 380px; min-width: 280px;">
           <img src="assets/images/about/Vacuum.jpeg" alt="Vacuum Packaging Machine" loading="lazy"
             style="width: 100%; height: 220px; object-fit: cover;" />
@@ -975,7 +975,7 @@
         </div>
 
         <!-- Pouch Machine - WIDTH INCREASED -->
-        <div class="gallery-item" data-category="product"
+        <div class="gallery-itemm" data-category="product"
           style="flex: 0 1 calc(59% - 15px); max-width: 380px; min-width: 280px;">
           <img src="assets/images/about/semiautomatic.jpeg" alt="Pouch Filling Machine" loading="lazy"
             style="width: 100%; height: 220px; object-fit: cover;" />
@@ -990,6 +990,27 @@
           </div>
         </div>
       </div>
+      <style>
+        @media screen and (max-width: 768px) {
+          @media screen and (max-width: 768px) {
+            .gallery-itemm {
+              height: 48%;
+              width: 90%;
+              background-color: var(--white);
+              border-radius: 12px;
+              overflow: hidden;
+              box-shadow: var(--shadow);
+              transition: var(--transition);
+              transform: translate(-10px, 30px);
+              /* Combines translateX and translateY */
+              display: flex;
+              flex-direction: column;
+              opacity: 0;
+              animation: fadeInUp 0.6s forwards;
+              position: relative;
+            }
+          }
+      </style>
       <!-- Videos -->
       <div class="gallery-item" data-category="video" style="display: none;">
         <video controls poster="assets/images/about/image.png">
