@@ -1729,252 +1729,101 @@
 
     </html>
     <style>
-      /* Reset and base styles */
-      .rg-footer,
-      .rg-footer * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Main footer styles */
-      .rg-footer {
-        width: 100%;
-        background-color: #5D4037;
-        color: #FFF8E1;
-        font-family: "Poppins", sans-serif;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .rg-footer-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        width: 100%;
-      }
-
-      /* Footer top section */
-      .rg-footer-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 0;
-        position: relative;
-      }
-
-      .rg-call-heading {
-        color: beige;
-        font-size: 1.5rem;
-      }
-
-      .rg-call-button {
-        display: flex;
-        align-items: center;
-        background: beige;
-        color: #000;
-        padding: 10px 15px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .rg-call-icon {
-        height: 20px;
-        margin-right: 8px;
-        filter: brightness(0);
-      }
-
-      /* Footer widgets */
-      .rg-footer-widgets {
-        padding: 40px 0;
-      }
-
-      .rg-footer-row {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -15px;
-      }
-
-      .rg-footer-col {
-        padding: 0 15px;
-        margin-bottom: 30px;
-      }
-
-      /* Widget specific styles */
-      .rg-footer-logo-img {
-        width: 75px;
-        height: auto;
-        margin-bottom: 20px;
-      }
-
-      .rg-hours-heading,
-      .rg-address-heading,
-      .rg-links-heading,
-      .rg-subscribe-heading {
-        color: #D2B48C;
-        margin-bottom: 20px;
-        font-size: 1.1rem;
-      }
-
-      .rg-hours-list,
-      .rg-address-list,
-      .rg-links-list {
-        list-style: none;
-      }
-
-      .rg-hours-item,
-      .rg-address-item,
-      .rg-link-item {
-        margin-bottom: 15px;
-        color: #FFF8E1;
-      }
-
-      .rg-address-item,
-      .rg-link-item {
-        display: flex;
-        align-items: flex-start;
-      }
-
-      .rg-address-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        margin-top: 3px;
-        filter: brightness(0) invert(1);
-      }
-
-      .rg-address-link,
-      .rg-nav-link {
-        color: #FFF8E1;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .rg-address-link:hover,
-      .rg-nav-link:hover {
-        color: #D2B48C;
-      }
-
-      /* Subscribe form */
-      .rg-email-form {
-        display: flex;
-        width: 100%;
-      }
-
-      .rg-email-input {
-        flex: 1;
-        background: #FFF8E1;
-        color: #5D4037;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 30px 0 0 30px;
-      }
-
-      .rg-submit-button {
-        background: #FFF8E1;
-        border: none;
-        border-radius: 0 30px 30px 0;
-        padding: 0 15px;
-        cursor: pointer;
-      }
-
-      .rg-submit-icon {
-        height: 20px;
-        filter: brightness(0) invert(0.3);
-      }
-
-      /* Footer bottom */
-      .rg-footer-bottom {
-        background: linear-gradient(to right, #6b3e26, #7e5539, #9c6644, #7e5539, #6b3e26);
-        padding: 20px 0;
-      }
-
-      .rg-footer-bottom-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .rg-copyright-text {
-        margin: 0;
-        color: #FFF8E1;
-      }
-
-      .rg-copyright-link {
-        color: #D2B48C;
-        text-decoration: none;
-      }
-
-      .rg-social-links {
-        display: flex;
-        list-style: none;
-        gap: 10px;
-      }
-
-      .rg-social-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: #FFF8E1;
-        transition: transform 0.3s;
-      }
-
-      .rg-social-link:hover {
-        transform: translateY(-3px);
-      }
-
-      .rg-social-icon {
-        width: 18px;
-        height: 18px;
-        fill: #5D4037;
-      }
-
-      .rg-indiamart-icon {
-        width: 18px;
-        height: 18px;
-      }
-
-      .rg-footer-nav {
-        display: flex;
-        list-style: none;
-        gap: 15px;
-      }
-
-      .rg-footer-nav-link {
-        color: #D2B48C;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .rg-footer-nav-link:hover {
-        color: #FFF8E1;
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .rg-footer-top {
-          flex-direction: column;
-          gap: 15px;
-          text-align: center;
+      /* Footer Responsive Adjustments */
+      @media (max-width: 992px) {
+        .footer-content-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
         }
 
-        .rg-footer-bottom-container {
-          flex-direction: column;
+        .call-heading-text {
+          padding-left: 0;
           text-align: center;
+          margin-bottom: 20px;
         }
 
-        .rg-social-links,
-        .rg-footer-nav {
+        .phone-call-wrapper {
+          margin-right: 0;
+          margin: 0 auto;
+        }
+
+        .contact-support-section {
+          display: flex;
           justify-content: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-content-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .footer-header-section {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .call-heading-text {
+          font-size: 22px;
+          margin-bottom: 15px;
+        }
+
+        .footer-bottom-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 15px;
+        }
+
+        .social-media-links {
+          justify-content: center;
+        }
+
+        .footer-navigation-menu {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .call-heading-text {
+          font-size: 20px;
+        }
+
+        .main-call-heading {
+          font-size: 1.8rem;
+        }
+
+        .primary-call-button {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+
+        .footer-column {
+          text-align: center;
+        }
+
+        .footer-brand-logo {
+          display: flex;
+          justify-content: center;
+        }
+
+        .business-hours-section,
+        .contact-detail-item,
+        .navigation-list-item,
+        .rg-address-item {
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .contact-detail-item {
+          flex-direction: column;
+        }
+
+        .contact-detail-icon {
+          margin-right: 0;
+          margin-bottom: 8px;
         }
       }
     </style>
