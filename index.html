@@ -1929,169 +1929,264 @@
             </script>
     </section>
 
-    <footer class="main-footer" id="footer" style="background-color: #5D4037;"> <!-- Dark brown background -->
-        <div class="pattern-layer">
-            <div class="pattern-1" style="background-image: url(assets/images/shape/shape-12.png);"></div>
-            <div class="pattern-2" style="background-image: url(assets/images/shape/shape-13.png);"></div>
-            <div class="pattern-3" style="background-image: url(assets/images/shape/shape-14.png);"></div>
-        </div>
-        <div class="auto-container">
-            <div class="footer-top clearfix" style="justify-content: space-between;">
-                <div class="line-shape" style="background-image: url(assets/images/shape/shape-11.png);"></div>
-                <div class="text pull-left" style="transform: translateX(150px);">
-                    <h2 style="color: beige;">Give us a Call Today!</h2> <!-- Light brown and cream colors -->
-                </div>
-                <div class="support-box pull-right">
-                    <a href="tel:+91-98920-48932" style="color: #000000;">
-                        <img src="assets/images/icon/call.svg" alt="" class="call-icon" style="filter: black;">
-                        +9198920-48932
+    <!DOCTYPE html>
+    <html lang="en">
 
-                </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fixed Footer</title>
+        <style>
+            .mobile-logo-widget {
+                /* Custom styles for mobile logo widget */
+            }
+
+            .mobile-logo {
+                background-color: transparent;
+                width: 75px;
+                height: auto;
+                object-fit: contain;
+                transform: translateX(6px);
+                margin-right: 400px;
+            }
+
+            .open-hours-section {
+                text-align: left;
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            .open-hours-title {
+                text-align: left;
+                color: #D2B48C;
+                margin-bottom: 10px;
+            }
+
+            .hours-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .hours-item {
+                text-align: left;
+                color: #FFF8E1;
+                margin-bottom: 5px;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            @media (max-width: 768px) {
+                .mobile-logo-widget .open-hours-section {
+                    margin-left: 0;
+                    padding-left: 0;
+                    transform: translateX(0);
+                }
+
+                .mobile-logo {
+                    transform: translateX(0px);
+                    margin-right: 0;
+                    width: 65px;
+                }
+
+                .hours-item {
+                    font-size: 13px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .mobile-logo-widget .open-hours-section {
+                    margin-left: 0;
+                    padding-left: 0;
+                    transform: translateX(0);
+                }
+
+                .mobile-logo {
+                    transform: translateX(0px);
+                    margin-right: 0;
+                    width: 60px;
+                }
+
+                .hours-item {
+                    font-size: 12px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <footer class="main-footer" id="footer" style="background-color: #5D4037;"> <!-- Dark brown background -->
+            <div class="pattern-layer">
+                <div class="pattern-1" style="background-image: url(assets/images/shape/shape-12.png);"></div>
+                <div class="pattern-2" style="background-image: url(assets/images/shape/shape-13.png);"></div>
+                <div class="pattern-3" style="background-image: url(assets/images/shape/shape-14.png);"></div>
             </div>
+            <div class="auto-container">
+                <div class="footer-top clearfix" style="justify-content: space-between;">
+                    <div class="line-shape" style="background-image: url(assets/images/shape/shape-11.png);"></div>
+                    <div class="text pull-left" style="transform: translateX(150px);">
+                        <h2 style="color: beige;">Give us a Call Today!</h2> <!-- Light brown and cream colors -->
+                    </div>
+                    <div class="support-box pull-right">
+                        <a href="tel:+91-98920-48932" style="color: #000000;">
+                            <img src="assets/images/icon/call.svg" alt="" class="call-icon" style="filter: black;">
+                            +9198920-48932
+                        </a>
+                    </div>
+                </div>
 
-            <div class="widget-section">
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget logo-widget">
-                            <figure class="footer-logo"><a href='index-2.html'><img
-                                        src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png"
-                                        style="background-color: transparent; width: 75px; height: auto; object-fit: contain; transform: translateX(6px); margin-right: 400px;"
-                                        alt=""></a></figure>
-                            <div class="schedule-box" style="text-align: left; margin-left: 0; padding-left: 0;">
-                                <h6 style="text-align: left; color: #D2B48C;">Open Hours:</h6>
-                                <ul class="list clearfix">
-                                    <li style="text-align: left; color: #FFF8E1;">Mon - Sat: 9:30 AM - 6:00 PM.</li>
-                                    <li style="text-align: left; color: #FFF8E1;">Sunday: Closed</li>
-                                </ul>
+                <div class="widget-section">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget mobile-logo-widget">
+                                <style>
+                                    .footer-widget.mobile-logo-widget {
+                                        margin-left: 45px;
+                                    }
+                                </style>
+                                <figure class="footer-logo"><a href='index-2.html'><img
+                                            src="assets/images/logo/RG%20LOGO_small%20size%5b1%5d.png"
+                                            class="mobile-logo" alt=""></a></figure>
+                                <div class="open-hours-section">
+                                    <h6 class="open-hours-title">Open Hours:</h6>
+                                    <ul class="hours-list clearfix">
+                                        <li class="hours-item">Mon - Sat: 9:30 AM - 6:00 PM.</li>
+                                        <li class="hours-item">Sunday: Closed</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget contact-widget ml-70">
-                            <div class="widget-title">
-                                <h4 style="text-align: left; transform: translateX(35px); color: #D2B48C;">Address</h4>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="info-list clearfix">
-                                    <li style="text-align: left; color: #FFF8E1;"><img src="assets/images/icon/map.svg"
-                                            style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
-                                            alt="">Raval Group, D 329,
-                                        TTC Industrial Estate Turbhe, Navi Mumbai 400705
-                                    </li>
-                                    <li style="text-align: left; color: #FFF8E1;"><img src="assets/images/icon/call.svg"
-                                            style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
-                                            alt="">Call Us: <a href="tel:+91-9892048932"
-                                            style="color: #FFF8E1;">+91-98920-48932</a></li>
-                                    <li style="text-align: left; color: #FFF8E1;"><img
-                                            src="assets/images/icon/email.png"
-                                            style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
-                                            alt=""><a href="mailto:ravalgroup@gmail.com"
-                                            style="color: #FFF8E1;">ravalgroup@gmail.com</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget links-widget ml-70">
-                            <div class="widget-title">
-                                <h4 style="text-align: left; color: #D2B48C;">Quick Links</h4>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="links-list clearfix">
-                                    <li style="text-align: left;" class="quick-link"><a href="#about"
-                                            style="color: #FFF8E1;">About Us</a></li>
-                                    <li style="text-align: left;" class="quick-link"><a href="#service"
-                                            style="color: #FFF8E1;">Services</a></li>
-                                    <li style="text-align: left;" class="quick-link"><a href="#product"
-                                            style="color: #FFF8E1;">Products</a></li>
-                                    <li style="text-align: left;" class="quick-link"><a href='contact.html'
-                                            style="color: #FFF8E1;">Contact Us</a></li>
-                                </ul>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget ml-70">
+                                <div class="widget-title">
+                                    <h4 style="text-align: left; transform: translateX(35px); color: #D2B48C;">Address
+                                    </h4>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li style="text-align: left; color: #FFF8E1;"><img
+                                                src="assets/images/icon/map.svg"
+                                                style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
+                                                alt="">Raval Group, D 329,
+                                            TTC Industrial Estate Turbhe, Navi Mumbai 400705
+                                        </li>
+                                        <li style="text-align: left; color: #FFF8E1;"><img
+                                                src="assets/images/icon/call.svg"
+                                                style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
+                                                alt="">Call Us: <a href="tel:+91-9892048932"
+                                                style="color: #FFF8E1;">+91-98920-48932</a></li>
+                                        <li style="text-align: left; color: #FFF8E1;"><img
+                                                src="assets/images/icon/email.png"
+                                                style="height: auto; width: 24px; object-fit: contain; margin-right: 8px; filter: brightness(0) invert(1);"
+                                                alt=""><a href="mailto:ravalgroup@gmail.com"
+                                                style="color: #FFF8E1;">ravalgroup@gmail.com</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget subscribe-widget" style="transform: translateX(-150px);">
-                            <div class="widget-title">
-                                <h4 style="text-align: left; color: #D2B48C;">Subscribe</h4>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget ml-70">
+                                <div class="widget-title">
+                                    <h4 style="text-align: left; color: #D2B48C;">Quick Links</h4>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li style="text-align: left;" class="quick-link"><a href="#about"
+                                                style="color: #FFF8E1;">About Us</a></li>
+                                        <li style="text-align: left;" class="quick-link"><a href="#service"
+                                                style="color: #FFF8E1;">Services</a></li>
+                                        <li style="text-align: left;" class="quick-link"><a href="#product"
+                                                style="color: #FFF8E1;">Products</a></li>
+                                        <li style="text-align: left;" class="quick-link"><a href='contact.html'
+                                                style="color: #FFF8E1;">Contact Us</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="widget-content">
-                                <div class="form-inner">
-                                    <form action="#" method="post">
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Your Email" required=""
-                                                style="background-color: #FFF8E1; color: #5D4037;">
-                                            <button type="submit" style="background-color: #FFF8E1;border-left: 0px solid #5D4037;
-                                            border-top: 2px;border-bottom: 2px;border-right: 5px;">
-                                                <img src="assets/images/icon/right-arrow.png"
-                                                    style="height: auto; width: 24px; 
-                                            object-fit: contain; margin-right: 8px; padding-bottom: 5px; filter: brightness(0) invert(0.3);" alt=""></button>
-                                        </div>
-                                    </form>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget subscribe-widget" style="transform: translateX(-150px);">
+                                <div class="widget-title">
+                                    <h4 style="text-align: left; color: #D2B48C;">Subscribe</h4>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="form-inner">
+                                        <form action="#" method="post">
+                                            <div class="form-group">
+                                                <input type="email" name="email" placeholder="Your Email" required=""
+                                                    style="background-color: #FFF8E1; color: #5D4037;">
+                                                <button type="submit" style="background-color: #FFF8E1;border-left: 0px solid #5D4037;
+                                        border-top: 2px;border-bottom: 2px;border-right: 5px;">
+                                                    <img src="assets/images/icon/right-arrow.png"
+                                                        style="height: auto; width: 24px; 
+                                        object-fit: contain; margin-right: 8px; padding-bottom: 5px; filter: brightness(0) invert(0.3);" alt=""></button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom" style="background-color: linear-gradient(
-    to right,
-    #6b3e26,
-    #7e5539,
-    #9c6644,
-    #7e5539,
-    #6b3e26
-  )"> <!-- Darker brown footer bottom -->
-            <div class="auto-container">
-                <div class="bottom-inner">
-                    <div class="copyright">
-                        <p><a href='index-2.html' style='text-decoration: none; color: #D2B48C;'>RG Packaging</a> <span
-                                style="color: #FFF8E1;">&copy; 2025 All Right Reserved</span></p>
+            <div class="footer-bottom" style="background-color: linear-gradient(
+to right,
+#6b3e26,
+#7e5539,
+#9c6644,
+#7e5539,
+#6b3e26
+)"> <!-- Darker brown footer bottom -->
+                <div class="auto-container">
+                    <div class="bottom-inner">
+                        <div class="copyright">
+                            <p><a href='index-2.html' style='text-decoration: none; color: #D2B48C;'>RG Packaging</a>
+                                <span style="color: #FFF8E1;">&copy; 2025 All Right Reserved</span>
+                            </p>
+                        </div>
+                        <ul class="social-links clearfix">
+                            <li>
+                                <a target="_blank" href="https://www.instagram.com/rgpackhouse/" aria-label="Instagram"
+                                    style="background-color: #FFF8E1;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5D4037"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm9.25 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://www.linkedin.com/in/meghana-raval-a1772a56/"
+                                    aria-label="LinkedIn" style="background-color: #FFF8E1;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5D4037"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.041-1.854-3.041-1.854 0-2.137 1.445-2.137 2.937v5.673h-3.554V9h3.414v1.561h.049c.476-.898 1.637-1.847 3.368-1.847 3.6 0 4.265 2.368 4.265 5.451v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.555C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.277V1.723C24 .771 23.2 0 22.222 0z" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li style="position: relative; top: 2px;">
+                                <a target="_blank"
+                                    href="https://www.indiamart.com/proddetail/private-label-customised-packing-2851314805462.html?srsltid=AfmBOop9GtQqQfWntbRw_4ms8wcjth8DWl1lJnPyGdDztSnsrqdVuIEO"
+                                    aria-label="IndiaMART"
+                                    style="background-color: #FFF8E1; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%;">
+                                    <img src="assets/images/logo/indiamartlogo.png" alt="IndiaMART"
+                                        style="width: 24px; height: 24px;" />
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="footer-nav clearfix">
+                            <li><a href='index.html' style="color: #D2B48C;">Terms of Service</a></li>
+                            <li><a href='index.html' style="color: #D2B48C;">Privacy Policy</a></li>
+                        </ul>
                     </div>
-                    <ul class="social-links clearfix">
-                        <li>
-                            <a target="_blank" href="https://www.instagram.com/rgpackhouse/" aria-label="Instagram"
-                                style="background-color: #FFF8E1;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5D4037"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5Zm9.25 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/meghana-raval-a1772a56/"
-                                aria-label="LinkedIn" style="background-color: #FFF8E1;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5D4037"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.041-1.854-3.041-1.854 0-2.137 1.445-2.137 2.937v5.673h-3.554V9h3.414v1.561h.049c.476-.898 1.637-1.847 3.368-1.847 3.6 0 4.265 2.368 4.265 5.451v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.559V9h3.555v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.555C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.277V1.723C24 .771 23.2 0 22.222 0z" />
-                                </svg>
-                            </a>
-                        </li>
-                        <li style="position: relative; top: 2px;">
-                            <a target="_blank"
-                                href="https://www.indiamart.com/proddetail/private-label-customised-packing-2851314805462.html?srsltid=AfmBOop9GtQqQfWntbRw_4ms8wcjth8DWl1lJnPyGdDztSnsrqdVuIEO"
-                                aria-label="IndiaMART"
-                                style="background-color: #FFF8E1; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%;">
-                                <img src="assets/images/logo/indiamartlogo.png" alt="IndiaMART"
-                                    style="width: 24px; height: 24px;" />
-                            </a>
-                        </li>
-
-
-
-                    </ul>
-                    <ul class="footer-nav clearfix">
-                        <li><a href='index.html' style="color: #D2B48C;">Terms of Service</a></li>
-                        <li><a href='index.html' style="color: #D2B48C;">Privacy Policy</a></li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
+    </body>
+
+    </html>
     <!-- All JavaScript files-->
 
 
